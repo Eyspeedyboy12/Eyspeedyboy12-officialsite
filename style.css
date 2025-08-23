@@ -1,0 +1,292 @@
+/* =====================================================
+   Base Styles & Typography
+   ===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Headings & paragraphing */
+h1 { font-size: 65px; margin: 10px 0; }
+h2 { font-size: 48px; margin: 10px 0; }
+h3 { font-size: 35px; margin: 10px 0; }
+h4 { font-size: 20px; margin: 10px 0; }
+p  { font-size: 15px; margin: 10px 0; }
+h5 {
+    font-size: clamp(10px, 2vw, 20px);
+    margin: 10px 0;
+}
+/* Body */
+body {
+    background-color: #d8f0fb;
+    color: #242424;
+}
+
+/* =====================================================
+   Layout Containers
+   ===================================================== */
+main {
+    padding: 0 10px;
+    align-items: center;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+header {
+    width: 100%;
+    height: 125px;
+    display: inline-flex;
+    align-items: center;
+    background: #242424;
+    color: #ffffff;
+    padding: 50px;
+    font-size: 13px;
+    line-height: 20px;
+    border-bottom-right-radius: 75px;
+    margin-bottom: 30px;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to bottom right, #13beff, #8d00ff, #e711ff);
+    color: #ffffff;
+    padding: 40px 0 30px;
+    border-top-left-radius: 125px;
+    margin-top: 30px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+/* =====================================================
+   Utility Classes
+   ===================================================== */
+.img-rd { border-radius: 25px; }
+.inline { display: inline-flex; flex-direction: row; gap: 10px; align-items: center; justify-content: left; }
+.row { width: 85%; margin: auto; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
+.col { flex-basis: 25%; padding: 10px; }
+.col:nth-child(2) .col:nth-child(3){ flex-basis: 15px; }
+.logo { width: 80px; margin-bottom: 30px; }
+
+/* =====================================================
+   Text Styling
+   ===================================================== */
+.col h4 {
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.email-id {
+    width: fit-content;
+    border-bottom: 1px solid #cccccc;
+    margin: 20px 0;
+}
+
+ul li {
+    /*list-style: none;*/
+    margin-bottom: 5px;
+}
+
+.splist {
+    list-style: none;
+    text-decoration: none;
+}
+
+ul li a {
+    color: #ffffff;
+}
+
+.sm {
+    font-size: 1em;
+}
+
+/* =====================================================
+   Forms
+   ===================================================== */
+form {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 50px;
+}
+
+form .fa-regular { font-size: 18px; margin-right: 10px; }
+form input { width: 100%; background: transparent; color: #cccccc; border: 0; outline: none; }
+form button { background: transparent; border: 0; outline: none; cursor: pointer; }
+form button .fa-solid { font-size: 16px; color: #cccccc; }
+
+/* =====================================================
+   Icons
+   ===================================================== */
+.social-icons .fa-brands {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    color: #333333;
+    background: #ffffff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* =====================================================
+   Horizontal Rules
+   ===================================================== */
+hr {
+    border: 0;
+    height: 3px;
+    background-color: #333;
+    margin: 20px auto;
+    border-radius: 15px;
+    width: 90%;
+}
+
+.footer-hr {
+    border: 0;
+    height: 2px;
+    background-color: #e3f1ff;
+    margin: 20px auto;
+    border-radius: 15px;
+    width: 90%;
+}
+
+.copyright { text-align: center; }
+
+/* =====================================================
+   Underline Animation
+   ===================================================== */
+.underline {
+    width: 100%;
+    height: 5px;
+    background: #333333;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+
+.underline span {
+    width: 15px;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+
+@keyframes moving {
+    0% { left: -20px; }
+    100% { left: 100%; }
+}
+
+/* =====================================================
+   Responsive Design
+   ===================================================== */
+@media (max-width: 700px) {
+    footer { bottom: unset; }
+    .col { flex-basis: 100%; }
+    .col:nth-child(2) .col:nth-child(3){ flex-basis: 100px; }
+}
+
+/* =====================================================
+   Links & Buttons
+   ===================================================== */
+a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: ease 0.5s;
+}
+
+a:hover { color: #13beff; }
+
+.dif-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: ease 0.5s;
+}
+
+.dif-link:hover { color: #242424; }
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+/* Common button base styles */
+.link-button, .link-button2 {
+    display: inline-block;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* Button style 1 */
+.link-button {
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #fcf7f7;
+    color: #333;
+    font-size: 18px;
+}
+
+.link-button:hover { background-color: #37c1f0; color: #fff; }
+
+/* Button style 2 */
+.link-button2 {
+    padding: 12px 25px;
+    margin: 15px;
+    background-color: #333333;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif; /* Explicitly redefined */
+}
+
+.link-button2:hover { background-color: #37c1f0; color: #fff; }
+
+/* =====================================================
+   About Section
+   ===================================================== */
+.about-section {
+    margin: 20px auto;
+    box-sizing: content-box;
+    padding: 15px;
+    max-width: 80%;
+    background-color: #242424;
+    border-radius: 25px;
+    box-shadow: 10px 10px 20px #0000004d;
+    color: #ffffff;
+    line-height: 1.6;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+}
+
+/* Restore list styling inside About Section */
+.about-section ul,
+.about-section ol {
+    padding-left: 50px; /* add indentation back */
+    text-align: left;   /* keeps bullets/numbers aligned */
+    margin: 1em 0;      /* space above and below lists */
+}
+
+.about-section li {
+    margin-bottom: 5px; /* consistent spacing */
+}
