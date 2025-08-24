@@ -11,14 +11,23 @@
 }
 
 /* Headings & paragraphing */
-h1 { font-size: 65px; margin: 10px 0; }
-h2 { font-size: 48px; margin: 10px 0; }
-h3 { font-size: 35px; margin: 10px 0; }
-h4 { font-size: 20px; margin: 10px 0; }
-p  { font-size: 1em; }
-h5 {
-    font-size: clamp(10px, 2vw, 20px);
+h1 {
+    font-size: clamp(40px, 5vw, 65px);
     margin: 10px 0;
+}
+h2 {
+    font-size: clamp(35px, 4vw, 48px);
+    margin: 10px 0;
+}
+h3 {
+    font-size: clamp(25px , 3vw ,35px);
+    margin: 10px 0;
+}
+h4 {
+    font-size: clamp(16px, 2vw, 20px);
+}
+p  {
+    font-size: 1em;
 }
 /* Body */
 body {
@@ -33,7 +42,6 @@ main {
     padding: 0 10px;
     align-items: center;
     text-align: center;
-    box-sizing: content-box;
 }
 
 header {
@@ -44,7 +52,6 @@ header {
     background: #242424;
     color: #ffffff;
     padding: 50px;
-    font-size: 13px;
     line-height: 20px;
     border-bottom-right-radius: 75px;
     margin-bottom: 30px;
@@ -101,10 +108,6 @@ ul li a {
     color: #ffffff;
 }
 
-.sm {
-    font-size: 1em;
-}
-
 /* =====================================================
    Forms
    ===================================================== */
@@ -135,6 +138,7 @@ form button .fa-solid { font-size: 16px; color: #cccccc; }
     color: #333333;
     background: #ffffff;
     margin-right: 15px;
+    margin-bottom: 15px;
     cursor: pointer;
 }
 
