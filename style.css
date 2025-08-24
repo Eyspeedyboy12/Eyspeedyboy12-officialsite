@@ -51,7 +51,7 @@ header {
     align-items: center;
     background: #242424;
     color: #ffffff;
-    padding: 50px;
+    padding: clamp(25px, 5vw, 50px);
     line-height: 20px;
     border-bottom-right-radius: 75px;
     margin-bottom: 30px;
