@@ -282,6 +282,37 @@ header a:hover {
 }
 
 /* =====================================================
+   Footer Link Hover Effect (Light Blue → Purple → Pink)
+   ===================================================== */
+footer a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #242424;
+  background-size: 300% 100%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+footer a:hover::after {
+  width: 100%;
+  animation: gradient-move 3s ease-in-out infinite, color-pulse 5s ease-in-out infinite;
+}
+
+footer a:hover {
+  color: #13beff;
+}
+
+/* =====================================================
    About Section
    ===================================================== */
 .about-section {
