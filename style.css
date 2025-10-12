@@ -194,8 +194,6 @@ a {
     transition: ease 0.5s;
 }
 
-a:hover { color: #13beff; }
-
 .dif-link {
     color: #ffffff;
     text-decoration: none;
@@ -245,6 +243,43 @@ a:hover { color: #13beff; }
     box-shadow: 5px 5px 10px #0000004d;
 }
 .link-button2:hover { background-color: #37c1f0; color: #fff; }
+
+/* =====================================================
+   Header Link Hover Effect (Light Blue → Purple → Pink)
+   ===================================================== */
+header a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+header a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
+  background-size: 300% 100%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header a:hover::after {
+  width: 100%;
+  animation: gradient-move 3s ease-in-out infinite, color-pulse 5s ease-in-out infinite;
+}
+
+header a:hover {
+  color: #13beff;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /* =====================================================
    About Section
