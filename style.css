@@ -55,8 +55,8 @@ header {
   margin-bottom: 30px;
   border-bottom-right-radius: 40px;
   font-size: 10px;
-  border-bottom: 2px solid #13beff; /* VS Code-like subtle bottom border */
-  border-right: 2px solid #13beff;
+  border-bottom: 2px solid #3b3d3e; /* VS Code-like subtle bottom border */
+  border-right: 2px solid #3b3d3e;
 }
 
 main {
@@ -75,8 +75,8 @@ footer {
   margin-top: 30px;
   font-size: 13px;
   line-height: 20px;
-  border-top: 2px solid #13beff; /* VS Code-like subtle bottom border */
-  border-left: 2px solid #13beff;
+  border-top: 2px solid #3b3d3e; /* VS Code-like subtle bottom border */
+  border-left: 2px solid #3b3d3e;
 }
 
 /* =====================================================
@@ -378,33 +378,45 @@ header a:hover {
 /* =====================================================
    Footer Link Hover Effect (Grey)
    ===================================================== */
-ul footer a {
+footer a {
   position: relative;
   color: #ffffff;
   text-decoration: none;
   transition: color 0.4s ease;
 }
 
-ul footer a::after {
+footer a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -3px;
   width: 0;
   height: 2px;
-  background: #181818;
+  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
   background-size: 300% 100%;
   transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-ul footer a:hover::after {
+footer a:hover::after {
   width: 100%;
   animation: gradient-move 3s ease-in-out infinite,
     color-pulse 5s ease-in-out infinite;
 }
 
-ul footer a:hover {
+footer a:hover {
   color: #13beff;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* =====================================================
