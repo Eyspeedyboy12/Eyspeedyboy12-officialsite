@@ -208,11 +208,28 @@ form button .fa-solid {
   margin-right: 15px;
   margin-bottom: 15px;
   cursor: pointer;
-  transition: color 0.3s ease, background 0.3s ease; /* fade both in and out */
+  transition: color 0.3s ease, background 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Animated gradient background on hover */
 .social-icons .fa-brands:hover {
-  color: #13beff;
+  color: #ffffff; /* make icon white for contrast */
+  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
+  background-size: 300% 300%;
+  animation: gradientMove 3s linear infinite;
+}
+
+/* Gradient movement animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
 }
 
 /* =====================================================
@@ -506,7 +523,7 @@ header a:hover {
   position: absolute;
   inset: 0;
   border-radius: 25px;
-  padding: 2px; /* Border thickness */
+  padding: 3px; /* Border thickness */
   background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
   background-size: 300% 300%;
   z-index: 0;
