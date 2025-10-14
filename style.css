@@ -93,7 +93,7 @@ footer {
   justify-content: left;
 }
 .row {
-  width: 85%;
+  width: 80%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -101,7 +101,7 @@ footer {
   justify-content: space-between;
 }
 .col {
-  flex-basis: 40%;
+  flex-basis: 45%;
   padding: 10px;
 }
 .col:nth-child(2) .col:nth-child(3) {
