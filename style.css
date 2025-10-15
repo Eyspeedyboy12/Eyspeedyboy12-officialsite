@@ -579,3 +579,10 @@ header a:hover {
 .bd {
   border: 2px solid var(--border-color);
 }
+
+iframe {
+  border-radius: 25px;
+  box-shadow: 10px 10px 20px var(--shadow-color);
+  border: 2px solid var(--border-color);
+  margin: 10px auto;
+}
