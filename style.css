@@ -339,15 +339,6 @@ a {
 
 /* Common button base styles */
 .link-button,
-.link-button2 {
-  display: inline-block;
-  text-align: center;
-  border-radius: 8px;
-  font-weight: 700;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-sizing: border-box;
-  text-decoration: none;
-}
 
 /* Button style 1 */
 .link-button {
@@ -364,17 +355,62 @@ a {
   color: #fff;
 }
 
-/* Button style 2 */
+/* =========================================================
+   Button Style 2 — Gradient Border Hover Effect
+   ========================================================= */
 .link-button2 {
+  position: relative;
   padding: 12px 25px;
   margin: 15px;
   background-color: #242424;
   color: #ffffff;
   box-shadow: 5px 5px 10px #0000004d;
+  border-radius: 25px;
+  border: 2px solid #3b3d3e;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.4s ease, background-color 0.4s ease;
+  z-index: 1;
 }
+
+/* Gradient border layer */
+.link-button2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  padding: 2px; /* thickness of border */
+  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
+  background-size: 300% 300%;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: none;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Hover animation */
+.link-button2:hover::before {
+  opacity: 1;
+  animation: moveGradient 4s linear infinite;
+}
+
+/* Optional: glow and color shift */
 .link-button2:hover {
-  background-color: #37c1f0;
-  color: #fff;
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+/* Gradient animation keyframes */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
 }
 
 /* =====================================================
