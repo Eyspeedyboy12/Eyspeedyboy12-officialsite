@@ -10,6 +10,16 @@
   font-family: "Outfit", sans-serif;
 }
 
+:root {
+  --base-color: #121212;
+  --text-color: #ffffff;
+  --base-variant: #181818;
+  --border-color: #3b3d3e;
+  --shadow-color: #0000004d;
+  --secondary-color: #242424;
+  --ftbg: #e3f1ff;
+}
+
 /* Headings & Paragraphing */
 h1 {
   font-size: clamp(40px, 5vw, 80px);
@@ -32,8 +42,8 @@ p {
 
 /* Body */
 body {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--base-color);
+  color: var(--text-color);
 }
 
 /* =====================================================
@@ -49,14 +59,14 @@ header {
   flex-direction: row;
   justify-content: space-between; /* nav left, logo right */
   align-items: center;
-  background: #181818;
-  color: #ffffff;
+  background: var(--base-variant);
+  color: var(--text-color);
   padding: 20px 60px; /* compacted padding-left into shorthand */
   line-height: 20px;
   margin-bottom: 20px;
   border-bottom-right-radius: 40px;
-  border-bottom: 2px solid #3b3d3e; /* VS Code-like subtle bottom border */
-  border-right: 2px solid #3b3d3e;
+  border-bottom: 2px solid var(--border-color); /* VS Code-like subtle bottom border */
+  border-right: 2px solid var(--border-color);
 }
 
 /* Navigation container */
@@ -82,15 +92,15 @@ main {
 footer {
   width: 100%;
   bottom: 0;
-  background: #181818;
-  color: #ffffff;
+  background: var(--base-variant);
+  color: var(--text-color);
   padding: 20px 0 10px;
   border-top-left-radius: 50px;
   margin-top: 20px;
   font-size: 13px;
   line-height: 20px;
-  border-top: 2px solid #3b3d3e; /* VS Code-like subtle bottom border */
-  border-left: 2px solid #3b3d3e;
+  border-top: 2px solid var(--border-color); /* VS Code-like subtle bottom border */
+  border-left: 2px solid var(--border-color);
 }
 
 /* =====================================================
@@ -145,12 +155,6 @@ footer {
   position: relative;
 }
 
-.email-id {
-  width: fit-content;
-  border-bottom: 1px solid #cccccc;
-  margin: 20px 0;
-}
-
 ul li {
   margin-bottom: 5px;
 }
@@ -159,41 +163,7 @@ ul li {
   text-decoration: none;
 }
 ul li a {
-  color: #ffffff;
-}
-
-/* =====================================================
-   Forms
-   ===================================================== */
-form {
-  padding-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #cccccc;
-  margin-bottom: 50px;
-}
-
-form .fa-regular {
-  font-size: 18px;
-  margin-right: 10px;
-}
-form input {
-  width: 100%;
-  background: transparent;
-  color: #cccccc;
-  border: 0;
-  outline: none;
-}
-form button {
-  background: transparent;
-  border: 0;
-  outline: none;
-  cursor: pointer;
-}
-form button .fa-solid {
-  font-size: 16px;
-  color: #cccccc;
+  color: var(--text-color);
 }
 
 /* =====================================================
@@ -206,8 +176,8 @@ form button .fa-solid {
   text-align: center;
   line-height: 30px;
   font-size: 20px;
-  color: #242424;
-  background: #ffffff;
+  color: var(--secondary-color);
+  background: var(--text-color);
   margin-right: 15px;
   margin-bottom: 15px;
   cursor: pointer;
@@ -219,7 +189,7 @@ form button .fa-solid {
 
 /* Animated gradient background on hover */
 .social-icons .fa-brands:hover {
-  color: #ffffff; /* make icon white for contrast */
+  color: var(--text-color); /* make icon white for contrast */
   background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
   background-size: 300% 300%;
   animation: gradientMove 3s linear infinite;
@@ -241,7 +211,7 @@ form button .fa-solid {
 hr {
   border: 0;
   height: 3px;
-  background-color: #242424;
+  background-color: var(--secondary-color);
   margin: 10px auto;
   border-radius: 15px;
   width: 90%;
@@ -250,7 +220,7 @@ hr {
 .footer-hr {
   border: 0;
   height: 2px;
-  background-color: #e3f1ff;
+  background-color: var(--ftbg);
   margin: 20px auto;
   border-radius: 15px;
   width: 90%;
@@ -277,7 +247,7 @@ hr {
 .underline span {
   width: 15px;
   height: 100%;
-  background: #ffffff;
+  background: var(--text-color);
   border-radius: 3px;
   position: absolute;
   top: 0;
@@ -313,19 +283,19 @@ hr {
    Links & Buttons
    ===================================================== */
 a {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   transition: ease 0.5s;
 }
 
 .dif-link {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   transition: ease 0.5s;
 }
 
 .dif-link:hover {
-  color: #242424;
+  color: var(--secondary-color);
 }
 
 .button-container {
@@ -337,24 +307,6 @@ a {
   margin: 10px 0;
 }
 
-/* Common button base styles */
-.link-button,
-
-/* Button style 1 */
-.link-button {
-  width: 160px;
-  height: 50px;
-  line-height: 50px;
-  background-color: #fcf7f7;
-  color: #333;
-  font-size: 18px;
-  box-shadow: 5px 5px 10px #0000004d;
-}
-.link-button:hover {
-  background-color: #37c1f0;
-  color: #fff;
-}
-
 /* =========================================================
    Button Style 2 — Gradient Border Hover Effect
    ========================================================= */
@@ -362,11 +314,11 @@ a {
   position: relative;
   padding: 12px 25px;
   margin: 15px;
-  background-color: #242424;
-  color: #ffffff;
-  box-shadow: 5px 5px 10px #0000004d;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  box-shadow: 5px 5px 10px var(--shadow-color);
   border-radius: 25px;
-  border: 2px solid #3b3d3e;
+  border: 2px solid var(--border-color);
   cursor: pointer;
   overflow: hidden;
   transition: color 0.4s ease, background-color 0.4s ease;
@@ -399,8 +351,8 @@ a {
 
 /* Optional: glow and color shift */
 .link-button2:hover {
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
 }
 
 /* Gradient animation keyframes */
@@ -418,7 +370,7 @@ a {
    ===================================================== */
 header a {
   position: relative;
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.4s ease;
 }
@@ -463,7 +415,7 @@ header a:hover {
    ===================================================== */
 .ftu {
   position: relative;
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.4s ease;
 }
@@ -510,13 +462,13 @@ header a:hover {
   margin: 20px auto;
   padding: 15px;
   max-width: 80%;
-  background-color: #242424;
+  background-color: var(--secondary-color);
   border-radius: 25px;
-  box-shadow: 10px 10px 20px #0000004d;
-  color: #ffffff;
+  box-shadow: 10px 10px 20px var(--shadow-color);
+  color: var(--text-color);
   line-height: 1.6;
   text-align: center;
-  border: 2px solid #3b3d3e;
+  border: 2px solid var(--border-color);
 }
 
 /* Restore list styling inside About Section */
@@ -532,13 +484,13 @@ header a:hover {
 }
 
 .about-section2 {
-  background-color: #242424;
+  background-color: var(--secondary-color);
   border-radius: 25px;
-  box-shadow: 10px 10px 20px #0000004d;
-  color: #ffffff;
+  box-shadow: 10px 10px 20px var(--shadow-color);
+  color: var(--text-color);
   line-height: 1.6;
   text-align: center;
-  border: 2px solid #3b3d3e;
+  border: 2px solid var(--border-color);
 
   /* --- Layout adjustments --- */
   width: 100%;
