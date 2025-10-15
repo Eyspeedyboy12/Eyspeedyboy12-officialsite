@@ -113,14 +113,17 @@ footer {
   align-items: center;
   justify-content: right;
 }
+
+/* --- Container grid --- */
 .row {
   width: 80%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
 }
+
 .col {
   flex-basis: 45%;
   padding: 10px;
@@ -493,37 +496,35 @@ header a:hover {
 }
 
 .about-section2 {
-  margin: 10px auto;
-  padding: 5px;
-  width: 250px;
-  height: 250px;
   background-color: #242424;
   border-radius: 25px;
   box-shadow: 10px 10px 20px #0000004d;
   color: #ffffff;
   line-height: 1.6;
   text-align: center;
-
-  /* --- Grid layout --- */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  align-items: start;
-  justify-items: center;
-
   border: 2px solid #3b3d3e;
+
+  /* --- Layout adjustments --- */
+  width: 100%;
+  aspect-ratio: 1 / 1; /* ensures height = width */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
   position: relative;
   overflow: hidden;
   transition: border 0.4s ease;
 }
 
-/* Create animated gradient border effect */
+/* Gradient border hover effect */
 .about-section2::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 25px;
-  padding: 3px; /* Border thickness */
+  padding: 3px;
   background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
   background-size: 300% 300%;
   z-index: 0;
@@ -535,7 +536,6 @@ header a:hover {
   mask-composite: exclude;
 }
 
-/* Activate animation on hover */
 .about-section2:hover::before {
   opacity: 1;
   animation: moveGradient 4s linear infinite;
