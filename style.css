@@ -11,12 +11,12 @@
 }
 
 :root {
-  --base-color: #f5f5f5; /* Light background base */
+  --base-color: #f2f6fc; /* Light background base */
   --text-color: #121212; /* Dark text for contrast */
-  --base-variant: #ffffff; /* Lighter surface variant */
-  --border-color: #d0d0d0; /* Soft gray borders */
+  --base-variant: #f8feff; /* Lighter surface variant */
+  --border-color: #e0e0e0; /* Soft gray borders */
   --shadow-color: #0000001a; /* Subtle shadow */
-  --secondary-color: #e8e8e8; /* Slightly darker secondary background */
+  --secondary-color: #f9fdfe; /* Slightly darker secondary background */
   --ftbg: #1e2a35;
   --idk: #242424;
 }
