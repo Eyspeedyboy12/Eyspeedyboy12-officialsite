@@ -11,7 +11,7 @@
       name="google-site-verification"
       content="QOaxKwsABLWVFsnETWZq2e4PwRiO2Z-s5tgPIhNvfHc"
     />
-    <title>Eyspeedyboy12 - official site</title>
+    <title>Eyspeedyboy12 - Official site</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
@@ -25,20 +25,15 @@
     <header>
       <nav class="nav">
         <div class="nav-left">
-          <img
-            src="Logo.png"
-            alt="Eyspeedyboy12 Logo"
-            width="40"
-            style="border-radius: 10px; border: 2px solid #ffffff26"
-          />
+          <img src="Logo.png" alt="Eyspeedyboy12 Logo" />
           <h4>Eyspeedyboy12</h4>
         </div>
 
         <div class="nav-right">
-          <a href="index.html" class="active">Home</a>
-          <a href="About.html">About</a>
-          <a href="Gallery.html">Gallery</a>
-          <a href="FAQ.html">FAQ</a>
+          <a href="index.html" class="hideonmobile">Home</a>
+          <a href="About.html" class="hideonmobile">About</a>
+          <a href="Gallery.html" class="hideonmobile">Gallery</a>
+          <a href="FAQ.html" class="hideonmobile">FAQ</a>
 
           <button id="theme-switch">
             <i class="hgi hgi-stroke hgi-moon-02" style="font-size: 20px"></i>
@@ -47,12 +42,53 @@
               style="color: #ffffff; font-size: 20px"
             ></i>
           </button>
+          <a
+            href="javascript:void(0)"
+            onclick="showsidebar()"
+            style="font-size: 36px"
+            class="menu-button"
+          >
+            <i class="hgi hgi-stroke hgi-menu-01"></i>
+          </a>
         </div>
       </nav>
     </header>
+
+    <nav class="sidebar">
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+        "
+      >
+        <div
+          class="nav-left"
+          style="display: flex; align-items: center; gap: 10px"
+        >
+          <img
+            src="Logo.png"
+            alt="Logo"
+            width="30"
+            style="border-radius: 5px"
+          />
+          <h4 style="font-size: 14px">Eyspeedyboy12</h4>
+        </div>
+        <a href="javascript:void(0)" onclick="closesidebar()">
+          <i class="hgi hgi-stroke hgi-cancel-01"></i>
+        </a>
+      </div>
+
+      <a href="index.html" class="ftu">Home</a>
+      <a href="About.html" class="ftu">About</a>
+      <a href="Gallery.html" class="ftu">Gallery</a>
+      <a href="FAQ.html" class="ftu">FAQ</a>
+    </nav>
+
     <section class="hero">
       <div class="hero-overlay"></div>
-
       <div class="hero-content">
         <div style="font-size: clamp(32px, 4vw, 40px); padding: 10px">
           <i class="fa-solid fa-house fa-2xl"></i>
@@ -70,12 +106,15 @@
       <h2>Welcome to Eyspeedyboy12's website</h2>
       <img src="Ey%20title%20-%20%2301.png" alt="Ey title" width="80%" />
       <hr />
-      <HugeiconsIcon icon="{BluetoothCircleIcon}" />
+      <i
+        class="hgi hgi-stroke hgi-bluetooth"
+        style="font-size: 40px; margin: 20px 0"
+      ></i>
       <hr />
+
       <div class="button-container">
         <a
-          href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1
-"
+          href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1"
           target="_blank"
           class="link-button2"
           >Sub to my YouTube Channel</a
@@ -93,6 +132,7 @@
           >Follow me on TikTok</a
         >
       </div>
+
       <div class="button-container">
         <a
           href="https://www.twitch.tv/eyspeedyboy12"
@@ -107,7 +147,9 @@
           >Join my discord server</a
         >
       </div>
+
       <hr />
+
       <div class="about-section">
         <h2>The games I play</h2>
         <ul>
@@ -118,7 +160,9 @@
           <li><h4>Geometry Dash</h4></li>
         </ul>
       </div>
+
       <hr />
+
       <div class="row">
         <div class="about-section2"><h3>Reliable</h3></div>
         <div class="about-section2"><h3>Premium content</h3></div>
@@ -126,6 +170,7 @@
         <div class="about-section2"><h3>Entertaining</h3></div>
       </div>
     </main>
+
     <footer>
       <div class="row">
         <div class="col">
@@ -159,11 +204,12 @@
           </div>
         </div>
       </div>
+
       <hr class="footer-hr" />
+
       <div class="social-icons" style="text-align: center">
         <a
-          href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1
-"
+          href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1"
           target="_blank"
           ><i class="fa-brands fa-youtube"></i
         ></a>
@@ -184,8 +230,19 @@
           target="_blank"
           ><i class="fa-brands fa-bluesky"></i
         ></a>
-        <p>Copyright &copy; 2025 Eyspeedyboy12 - All rights reserved.</p>
+        <p style="margin-top: 20px">
+          Copyright &copy; 2025 Eyspeedyboy12 - All rights reserved.
+        </p>
       </div>
     </footer>
+
+    <script>
+      function showsidebar() {
+        document.querySelector(".sidebar").style.display = "flex";
+      }
+      function closesidebar() {
+        document.querySelector(".sidebar").style.display = "none";
+      }
+    </script>
   </body>
 </html>

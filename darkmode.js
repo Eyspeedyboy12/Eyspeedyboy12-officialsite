@@ -1,19 +1,26 @@
-let darkmode = localStorage.getItem('darkmode')
-const themeSwitch = document.getElementById('theme-switch')
+// Check for saved user preference in localStorage
+let darkmode = localStorage.getItem('darkmode');
+// Select all elements with the id or class (using selector to catch both switches)
+const themeSwitches = document.querySelectorAll('#theme-switch');
 
 const enableDarkmode = () => {
-    document.body.classList.add('darkmode')
-    localStorage.setItem('darkmode', 'active')
-}
+    document.body.classList.add('darkmode');
+    localStorage.setItem('darkmode', 'active'); // Save preference
+};
 
 const disableDarkmode = () => {
-    document.body.classList.remove('darkmode')
-    localStorage.setItem('darkmode', null)
-}
+    document.body.classList.remove('darkmode');
+    localStorage.setItem('darkmode', null); // Remove preference
+};
 
-if(darkmode === "active") enableDarkmode()
+// Apply preference on page load
+if (darkmode === "active") enableDarkmode();
 
-themeSwitch.addEventListener("click", () => {
-    darkmode = localStorage.getItem('darkmode')
-    darkmode !== "active" ? enableDarkmode() : disableDarkmode();
-})
+// Loop through all switches and add the click event listener
+themeSwitches.forEach(switchBtn => {
+    switchBtn.addEventListener("click", () => {
+        darkmode = localStorage.getItem('darkmode');
+        // Toggle between active and null
+        darkmode !== "active" ? enableDarkmode() : disableDarkmode();
+    });
+});

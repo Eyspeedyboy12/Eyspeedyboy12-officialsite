@@ -1,7 +1,6 @@
 /* =====================================================
-   Base Styles & Typography
+   1. Base Reset & Typography
    ===================================================== */
-
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap");
 
 * {
@@ -11,61 +10,136 @@
   font-family: "Urbanist", sans-serif;
 }
 
-:root {
-  --base-color: #f2f6fc; /* Light background base */
-  --text-color: #121212; /* Dark text for contrast */
-  --base-variant: #f8feff; /* Lighter surface variant */
-  --border-color: #e0e0e0; /* Soft gray borders */
-  --shadow-color: #0000001a; /* Subtle shadow */
-  --secondary-color: #f9fdfe; /* Slightly darker secondary background */
-  --ftbg: #1e2a35;
-  --idk: #242424;
-  --hbg: rgba(255, 255, 255, 0.08);
-}
-
-.darkmode {
-  --base-color: #121212;
-  --text-color: #ffffff;
-  --base-variant: #181818;
-  --border-color: #3b3d3e;
-  --shadow-color: #0000004d;
-  --secondary-color: #242424;
-  --ftbg: #e3f1ff;
-  --idk: #242424;
-  --hbg: rgba(20, 20, 20, 0.6);
-}
-
-/* Headings & Paragraphing */
+/* Typography Defaults */
 h1 {
   font-size: clamp(40px, 5vw, 80px);
   margin: 10px 0;
   font-weight: 900;
 }
+
 h2 {
   font-size: clamp(35px, 4vw, 48px);
   margin: 5px 0;
   font-weight: 800;
 }
+
 h3 {
   font-size: clamp(25px, 3vw, 35px);
   margin: 10px 0;
   font-weight: 700;
 }
+
 h4 {
   font-size: 15px;
   font-weight: 400;
 }
+
 p {
   font-size: 18px;
   font-weight: 400;
 }
 
-/* Body */
-body {
-  background-color: var(--base-color);
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.5s ease;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+ul li a {
   color: var(--text-color);
 }
 
+.splist {
+  list-style: none;
+  text-decoration: none;
+}
+
+/* =====================================================
+   2. Theme Variables
+   ===================================================== */
+:root {
+  /* Colors */
+  --base-color: #f2f6fc; /* Light background base */
+  --base-variant: #f8feff; /* Lighter surface variant */
+  --secondary-color: #f9fdfe; /* Slightly darker secondary background */
+  --text-color: #121212; /* Dark text for contrast */
+  --border-color: #e0e0e0; /* Soft gray borders */
+  --shadow-color: #0000001a; /* Subtle shadow */
+
+  /* UI Elements */
+  --ftbg: #1e2a35;
+  --idk: #242424;
+  --hbg: rgba(255, 255, 255, 0.08); /* Header/Sidebar Glass BG */
+}
+
+.darkmode {
+  /* Colors */
+  --base-color: #121212;
+  --base-variant: #181818;
+  --secondary-color: #242424;
+  --text-color: #ffffff;
+  --border-color: #3b3d3e;
+  --shadow-color: #0000004d;
+
+  /* UI Elements */
+  --ftbg: #e3f1ff;
+  --idk: #242424;
+  --hbg: rgba(20, 20, 20, 0.6);
+}
+
+/* =====================================================
+   3. Core Layout (Body, Header, Footer)
+   ===================================================== */
+body {
+  background-color: var(--base-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px;
+  line-height: 20px;
+
+  /* Glass effect */
+  background: var(--hbg); /* Fixed missing dashes */
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+
+  /* Borders & Radius */
+  border-bottom-right-radius: 40px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  border-right: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  color: var(--text-color);
+}
+
+header img {
+  width: 50px;
+  border-radius: 10px;
+  margin-left: 0px;
+  border-radius: 10px;
+  border: 2px solid #ffffff26;
+}
+
+/* Navigation */
 .nav {
   display: flex;
   align-items: center;
@@ -84,83 +158,387 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-left: auto; /* THIS is the divider */
+  margin-left: auto;
 }
 
-a {
-  font-weight: 500;
-}
-
-/* =====================================================
-   Layout Containers
-   ===================================================== */
-
-header {
-  position: sticky;
+/* Sidebar */
+.sidebar {
+  position: fixed;
   top: 0;
+  right: 0;
+  height: 400px;
+  width: 250px;
   z-index: 999;
-  width: 100%;
-  height: 80px;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  /* Glass effect */
-  background: var(hbg); /* adjust for dark/light mode */
+  background: var(--hbg); /* Fixed missing dashes */
   backdrop-filter: blur(14px) saturate(160%);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
 
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px;
+
   color: var(--text-color);
-
-  padding: 20px 60px;
-  line-height: 20px;
-
-  border-bottom-right-radius: 40px;
-
-  /* Subtle borders for depth */
   border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-  border-right: 2px solid rgba(255, 255, 255, 0.15);
-
-  /* Soft shadow */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  border-bottom-left-radius: 20px;
 }
 
-/* Logo styling */
-header img {
-  width: 50px;
-  border-radius: 10px;
-  margin-left: 10px;
+.sidebar a {
+  margin: 3px;
 }
 
+.menu-button {
+  display: none;
+}
+
+/* Main Content */
 main {
   padding: 0 10px;
   align-items: center;
   text-align: center;
 }
 
+/* Footer */
 footer {
   width: 100%;
   bottom: 0;
-  font-weight: 500;
+  margin-top: 20px;
+  padding: 20px 0 10px;
+
   background: var(--base-variant);
   color: var(--text-color);
-  padding: 20px 0 10px;
-  border-top-left-radius: 50px;
-  margin-top: 20px;
+
+  font-weight: 500;
   font-size: 13px;
   line-height: 20px;
-  border-top: 2px solid var(--border-color); /* VS Code-like subtle bottom border */
+
+  border-top-left-radius: 50px;
+  border-top: 2px solid var(--border-color);
   border-left: 2px solid var(--border-color);
 }
 
 /* =====================================================
-   Utility Classes
+   4. Components & Sections
+   ===================================================== */
+
+/* --- Hero Section --- */
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  width: 100%;
+  padding-top: 80px;
+  margin-bottom: 20px;
+
+  background-image: url("Website-banner-1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border-bottom: var(--border-color) 2px solid;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.55)
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 900;
+}
+
+.hero-content p {
+  font-size: clamp(16px, 2vw, 22px);
+  opacity: 0.9;
+}
+
+/* --- About Sections --- */
+.about-section {
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 80%;
+
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+
+  border-radius: 25px;
+  border: 2px solid var(--border-color);
+  box-shadow: 10px 10px 20px var(--shadow-color);
+
+  line-height: 1.6;
+  text-align: center;
+}
+
+.about-section ul,
+.about-section ol {
+  padding-left: 50px;
+  text-align: left;
+  margin: 1em 0;
+}
+
+.about-section li {
+  margin-bottom: 5px;
+}
+
+.about-section2 {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+
+  border-radius: 25px;
+  border: 2px solid var(--border-color);
+  box-shadow: 10px 10px 20px var(--shadow-color);
+
+  line-height: 1.6;
+  text-align: center;
+  overflow: hidden;
+  transition: border 0.4s ease;
+}
+
+.about-section2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  border-radius: 25px;
+  padding: 3px;
+  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
+  background-size: 300% 300%;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  /* Mask logic for gradient border */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.about-section2:hover::before {
+  opacity: 1;
+  animation: bg-pan-right 4s linear infinite;
+}
+
+/* --- Buttons --- */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.link-button2 {
+  position: relative;
+  z-index: 1;
+  padding: 12px 25px;
+  margin: 15px;
+
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+
+  border-radius: 25px;
+  border: 2px solid var(--border-color);
+  box-shadow: 5px 5px 10px var(--shadow-color);
+
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.link-button2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  border-radius: 25px;
+  padding: 2px;
+  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
+  background-size: 300% 300%;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.link-button2:hover::before {
+  opacity: 1;
+  animation: bg-pan-right 4s linear infinite;
+}
+
+/* --- Social Icons --- */
+.social-icons .fa-brands {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+
+  color: var(--secondary-color);
+  background: var(--text-color);
+
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.social-icons .fa-brands:hover {
+  color: var(--text-color);
+  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
+  background-size: 300% 300%;
+  animation: bg-pan-right 3s linear infinite;
+}
+
+/* --- Theme Switch --- */
+#theme-switch {
+  position: static;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--base-variant);
+  border-radius: 50%;
+}
+
+#theme-switch i {
+  fill: var(--text-color);
+}
+
+#theme-switch i:last-child {
+  display: none;
+}
+
+.darkmode #theme-switch i:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch i:last-child {
+  display: block;
+}
+
+/* --- Special Links & Hover Effects --- */
+/* Header Links */
+header a {
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+header a::after,
+.ftu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+
+  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
+  background-size: 300% 100%;
+  border-radius: 2px;
+
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header a:hover::after,
+.ftu:hover::after {
+  width: 100%;
+  animation: bg-pan-oscillate 3s ease-in-out infinite;
+}
+
+header a:hover,
+.ftu:hover {
+  color: #13beff;
+}
+
+/* Footer & Dif Links */
+.ftu {
+  position: relative;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.dif-link {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: ease 0.5s;
+}
+
+.dif-link:hover {
+  color: var(--secondary-color);
+}
+
+/* Iframe Styling */
+iframe {
+  margin: 10px auto;
+  border-radius: 25px;
+  box-shadow: 10px 10px 20px var(--shadow-color);
+  border: 2px solid var(--border-color);
+}
+
+/* =====================================================
+   5. Utility Classes
    ===================================================== */
 .img-rd {
   border-radius: 25px;
 }
+
+.bd {
+  border: 2px solid var(--border-color);
+}
+
 .inline {
   display: inline-flex;
   flex-direction: row;
@@ -168,7 +546,8 @@ footer {
   align-items: center;
   justify-content: left;
 }
-/* --- Container grid --- */
+
+/* Grid System */
 .row {
   width: 80%;
   margin: 0 auto;
@@ -182,76 +561,20 @@ footer {
   flex-basis: 45%;
   padding: 10px;
 }
-.col:nth-child(2) .col:nth-child(3) {
-  flex-basis: 15px;
-}
-.logo {
-  width: 80px;
-  margin-bottom: 30px;
-}
 
-/* =====================================================
-   Text Styling
-   ===================================================== */
 .col h4 {
   width: fit-content;
   margin-bottom: 20px;
   position: relative;
 }
 
-ul li {
-  margin-bottom: 5px;
-}
-.splist {
-  list-style: none;
-  text-decoration: none;
-}
-ul li a {
-  color: var(--text-color);
+/* Logo */
+.logo {
+  width: 80px;
+  margin-bottom: 30px;
 }
 
-/* =====================================================
-   Icons
-   ===================================================== */
-.social-icons .fa-brands {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 30px;
-  font-size: 20px;
-  color: var(--secondary-color);
-  background: var(--text-color);
-  margin-right: 15px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  transition: color 0.3s ease, background 0.3s ease;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Animated gradient background on hover */
-.social-icons .fa-brands:hover {
-  color: var(--text-color); /* make icon white for contrast */
-  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
-  background-size: 300% 300%;
-  animation: gradientMove 3s linear infinite;
-}
-
-/* Gradient movement animation */
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 300% 50%;
-  }
-}
-
-/* =====================================================
-   Horizontal Rules
-   ===================================================== */
+/* Dividers */
 hr {
   border: 0;
   height: 3px;
@@ -275,8 +598,43 @@ hr {
 }
 
 /* =====================================================
-   Underline Animation
+   6. Animations
    ===================================================== */
+
+/* Continuous Pan Right (300% width) */
+@keyframes bg-pan-right {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* Oscillating Pan (Left -> Right -> Left) */
+@keyframes bg-pan-oscillate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Physical Movement (Left -> Right) */
+@keyframes slide-right {
+  0% {
+    left: -20px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Underline Animation Container */
 .underline {
   width: 100%;
   height: 3px;
@@ -296,20 +654,11 @@ hr {
   position: absolute;
   top: 0;
   left: 10px;
-  animation: moving 2s linear infinite;
-}
-
-@keyframes moving {
-  0% {
-    left: -20px;
-  }
-  100% {
-    left: 100%;
-  }
+  animation: slide-right 2s linear infinite;
 }
 
 /* =====================================================
-   Responsive Design
+   7. Media Queries
    ===================================================== */
 @media (max-width: 700px) {
   footer {
@@ -323,358 +672,17 @@ hr {
   }
 }
 
-/* =====================================================
-   Links & Buttons
-   ===================================================== */
-a {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: ease 0.5s;
-  font-weight: 400;
-}
-
-.dif-link {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: ease 0.5s;
-}
-
-.dif-link:hover {
-  color: var(--secondary-color);
-}
-
-.button-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 10px 0;
-}
-
-/* =========================================================
-   Button Style 2 — Gradient Border Hover Effect
-   ========================================================= */
-.link-button2 {
-  position: relative;
-  padding: 12px 25px;
-  margin: 15px;
-  background-color: var(--secondary-color);
-  color: var(--text-color);
-  box-shadow: 5px 5px 10px var(--shadow-color);
-  border-radius: 25px;
-  border: 2px solid var(--border-color);
-  cursor: pointer;
-  overflow: hidden;
-  transition: color 0.4s ease, background-color 0.4s ease;
-  z-index: 1;
-}
-
-/* Gradient border layer */
-.link-button2::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 25px;
-  padding: 2px; /* thickness of border */
-  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
-  background-size: 300% 300%;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  animation: none;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-/* Hover animation */
-.link-button2:hover::before {
-  opacity: 1;
-  animation: moveGradient 4s linear infinite;
-}
-
-/* Optional: glow and color shift */
-.link-button2:hover {
-  background-color: var(--secondary-color);
-  color: var(--text-color);
-}
-
-/* Gradient animation keyframes */
-@keyframes moveGradient {
-  0% {
-    background-position: 0% 50%;
+@media (max-width: 800px) {
+  .hideonmobile {
+    display: none;
   }
-  100% {
-    background-position: 300% 50%;
+  .menu-button {
+    display: block;
   }
 }
 
-/* =====================================================
-   Header Link Hover Effect (Light Blue → Purple → Pink)
-   ===================================================== */
-header a {
-  position: relative;
-  color: var(--text-color);
-  text-decoration: none;
-  transition: color 0.4s ease;
-}
-
-header a::after {
-  content: "";
-  top: 0;
-  left: 0;
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
-  background-size: 300% 100%;
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 2px;
-}
-
-header a:hover::after {
-  width: 100%;
-  animation: gradient-move 3s ease-in-out infinite,
-    color-pulse 5s ease-in-out infinite;
-}
-
-header a:hover {
-  color: #13beff;
-}
-
-@keyframes gradient-move {
-  0% {
-    background-position: 0% 50%;
+@media (max-width: 400px) {
+  .sidebat {
+    width: 100%;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* =====================================================
-   Footer Link Hover Effect (Grey)
-   ===================================================== */
-.ftu {
-  position: relative;
-  color: var(--text-color);
-  text-decoration: none;
-  transition: color 0.4s ease;
-}
-
-.ftu::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
-  background-size: 300% 100%;
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 2px;
-}
-
-.ftu:hover::after {
-  width: 100%;
-  animation: gradient-move 3s ease-in-out infinite,
-    color-pulse 5s ease-in-out infinite;
-}
-
-.ftu:hover {
-  color: #13beff;
-}
-
-@keyframes gradient-move {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* =====================================================
-   About Section
-   ===================================================== */
-.about-section {
-  margin: 20px auto;
-  padding: 15px;
-  max-width: 80%;
-  background-color: var(--secondary-color);
-  border-radius: 25px;
-  box-shadow: 10px 10px 20px var(--shadow-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  text-align: center;
-  border: 2px solid var(--border-color);
-}
-
-/* Restore list styling inside About Section */
-.about-section ul,
-.about-section ol {
-  padding-left: 50px;
-  text-align: left;
-  margin: 1em 0;
-}
-
-.about-section li {
-  margin-bottom: 5px;
-}
-
-.about-section2 {
-  background-color: var(--secondary-color);
-  border-radius: 25px;
-  box-shadow: 10px 10px 20px var(--shadow-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  text-align: center;
-  border: 2px solid var(--border-color);
-
-  /* --- Layout adjustments --- */
-  width: 100%;
-  aspect-ratio: 1 / 1; /* ensures height = width */
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  position: relative;
-  overflow: hidden;
-  transition: border 0.4s ease;
-}
-
-/* Gradient border hover effect */
-.about-section2::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 25px;
-  padding: 3px;
-  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
-  background-size: 300% 300%;
-  z-index: 0;
-  animation: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-.about-section2:hover::before {
-  opacity: 1;
-  animation: moveGradient 4s linear infinite;
-}
-
-@keyframes moveGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 300% 50%;
-  }
-}
-#theme-switch {
-  height: 40px;
-  width: 40px;
-  padding: 0;
-  border-radius: 50%;
-  background-color: var(--base-variant);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: static;
-  top: 20px;
-  right: 20px;
-}
-#theme-switch i {
-  fill: var(--text-color);
-}
-#theme-switch i:last-child {
-  display: none;
-}
-.darkmode #theme-switch i:first-child {
-  display: none;
-}
-.darkmode #theme-switch i:last-child {
-  display: block;
-}
-
-.bd {
-  border: 2px solid var(--border-color);
-}
-
-iframe {
-  border-radius: 25px;
-  box-shadow: 10px 10px 20px var(--shadow-color);
-  border: 2px solid var(--border-color);
-  margin: 10px auto;
-}
-
-/* =====================================================
-   Hero Section (Top Background Image)
-   ===================================================== */
-
-.hero {
-  position: relative;
-  height: 60vh;
-  min-height: 400px;
-  width: 100%;
-  padding-top: 80px;
-  margin-bottom: 20px;
-  border-bottom: var(--border-color) 2px solid;
-
-  background-image: url("Website-banner-1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  overflow: hidden;
-}
-
-/* Dark / glass overlay for readability */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0.55)
-  );
-  z-index: 1;
-}
-
-/* Text on top of image */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
-  padding: 20px;
-}
-
-.hero-content h1 {
-  font-size: clamp(40px, 6vw, 80px);
-  font-weight: 900;
-}
-
-.hero-content p {
-  font-size: clamp(16px, 2vw, 22px);
-  opacity: 0.9;
 }
