@@ -1,13 +1,14 @@
 /* =====================================================
    Base Styles & Typography
    ===================================================== */
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Outfit", sans-serif;
+  font-family: "Urbanist", sans-serif;
 }
 
 :root {
@@ -19,6 +20,7 @@
   --secondary-color: #f9fdfe; /* Slightly darker secondary background */
   --ftbg: #1e2a35;
   --idk: #242424;
+  --hbg: rgba(255, 255, 255, 0.08);
 }
 
 .darkmode {
@@ -30,26 +32,32 @@
   --secondary-color: #242424;
   --ftbg: #e3f1ff;
   --idk: #242424;
+  --hbg: rgba(20, 20, 20, 0.6);
 }
 
 /* Headings & Paragraphing */
 h1 {
   font-size: clamp(40px, 5vw, 80px);
   margin: 10px 0;
+  font-weight: 900;
 }
 h2 {
   font-size: clamp(35px, 4vw, 48px);
   margin: 5px 0;
+  font-weight: 800;
 }
 h3 {
   font-size: clamp(25px, 3vw, 35px);
   margin: 10px 0;
+  font-weight: 700;
 }
 h4 {
-  font-size: 15px; /*font-weight: 700;*/
+  font-size: 15px;
+  font-weight: 400;
 }
 p {
-  font-size: 1em;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 /* Body */
@@ -58,34 +66,65 @@ body {
   color: var(--text-color);
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto; /* THIS is the divider */
+}
+
+a {
+  font-weight: 500;
+}
+
 /* =====================================================
    Layout Containers
    ===================================================== */
+
 header {
   position: sticky;
   top: 0;
   z-index: 999;
   width: 100%;
-  height: 75px;
-  display: inline-flex; /* changed from inline-flex to flex for better layout control */
-  flex-direction: row;
-  justify-content: space-between; /* nav left, logo right */
-  align-items: center;
-  background: var(--base-variant);
-  color: var(--text-color);
-  padding: 20px 60px; /* compacted padding-left into shorthand */
-  line-height: 20px;
-  margin-bottom: 20px;
-  border-bottom-right-radius: 40px;
-  border-bottom: 2px solid var(--border-color); /* VS Code-like subtle bottom border */
-  border-right: 2px solid var(--border-color);
-}
+  height: 80px;
 
-/* Navigation container */
-header .inline {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+
+  /* Glass effect */
+  background: var(hbg); /* adjust for dark/light mode */
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+
+  color: var(--text-color);
+
+  padding: 20px 60px;
+  line-height: 20px;
+
+  border-bottom-right-radius: 40px;
+
+  /* Subtle borders for depth */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  border-right: 2px solid rgba(255, 255, 255, 0.15);
+
+  /* Soft shadow */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Logo styling */
@@ -104,6 +143,7 @@ main {
 footer {
   width: 100%;
   bottom: 0;
+  font-weight: 500;
   background: var(--base-variant);
   color: var(--text-color);
   padding: 20px 0 10px;
@@ -128,15 +168,6 @@ footer {
   align-items: center;
   justify-content: left;
 }
-.inline2 {
-  display: inline-flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: right;
-  margin-left: 5px auto;
-}
-
 /* --- Container grid --- */
 .row {
   width: 80%;
@@ -299,6 +330,7 @@ a {
   color: var(--text-color);
   text-decoration: none;
   transition: ease 0.5s;
+  font-weight: 400;
 }
 
 .dif-link {
@@ -391,6 +423,8 @@ header a {
 
 header a::after {
   content: "";
+  top: 0;
+  left: 0;
   position: absolute;
   left: 0;
   bottom: -3px;
@@ -587,4 +621,60 @@ iframe {
   box-shadow: 10px 10px 20px var(--shadow-color);
   border: 2px solid var(--border-color);
   margin: 10px auto;
+}
+
+/* =====================================================
+   Hero Section (Top Background Image)
+   ===================================================== */
+
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  width: 100%;
+  padding-top: 80px;
+  margin-bottom: 20px;
+  border-bottom: var(--border-color) 2px solid;
+
+  background-image: url("Website-banner-1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+/* Dark / glass overlay for readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.55)
+  );
+  z-index: 1;
+}
+
+/* Text on top of image */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 900;
+}
+
+.hero-content p {
+  font-size: clamp(16px, 2vw, 22px);
+  opacity: 0.9;
 }
