@@ -3,62 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="keywords"
-      content="Eyspeedyboy12, Eyspeedyboy12-officialsite, Gaming, YouTuber, Minecraft"
-    />
-    <title>FAQ</title>
+    <meta name="description" content="[Insert Page Description Here]" />
+    <title>Eyspeedyboy12 - [Insert Page Title]</title>
+
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
+
     <script type="text/javascript" src="darkmode.js" defer></script>
     <script
       src="https://kit.fontawesome.com/a21bb79a38.js"
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body id="bd1">
     <header>
-      <nav>
-        <div class="inline">
-          <a href="index.html"><h4>Home</h4></a> |
-          <a href="About.html"><h4>About</h4></a> |
-          <a href="Gallery.html"><h4>Gallery</h4></a> |
-          <a href="Privacy%20Policy.html"><h4>Privacy Policy</h4></a> |
-          <a href="Terms%20of%20Use.html"><h4>Terms of Use</h4></a> |
-          <a href="FAQ.html"><h4>FAQ</h4></a>
+      <nav class="nav">
+        <div class="nav-left">
+          <img src="Logo.png" alt="Eyspeedyboy12 Logo" />
+          <h4>Eyspeedyboy12</h4>
+        </div>
+
+        <div class="nav-right">
+          <a href="index.html" class="hideonmobile">Home</a>
+          <a href="About.html" class="hideonmobile">About</a>
+          <a href="Gallery.html" class="hideonmobile">Gallery</a>
+          <a href="FAQ.html" class="hideonmobile">FAQ</a>
+
+          <button id="theme-switch">
+            <i class="hgi hgi-stroke hgi-moon-02" style="font-size: 20px"></i>
+            <i
+              class="hgi hgi-stroke hgi-sun-03"
+              style="color: #ffffff; font-size: 20px"
+            ></i>
+          </button>
+
+          <a
+            href="javascript:void(0)"
+            onclick="showsidebar()"
+            style="font-size: 24px"
+            class="menu-button"
+          >
+            <i class="hgi hgi-stroke hgi-menu-01"></i>
+          </a>
         </div>
       </nav>
-      <div class="inline2">
-        <button id="theme-switch">
-          <i class="hgi hgi-stroke hgi-moon-02" style="font-size: 20px"></i>
-          <i
-            class="hgi hgi-stroke hgi-sun-03"
-            style="color: #ffffff; font-size: 20px"
-          ></i>
-        </button>
-        <h4>Eyspeedyboy12</h4>
-        <img
-          src="Logo.png"
-          alt="Eyspeedyboy12 Logo"
-          width="40px"
-          style="border-radius: 10px"
-          class="bd"
-        />
-      </div>
     </header>
+
+    <nav class="sidebar" style="display: none">
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+        "
+      >
+        <div
+          class="nav-left"
+          style="display: flex; align-items: center; gap: 10px"
+        >
+          <img
+            src="Logo.png"
+            alt="Logo"
+            width="40px"
+            style="border-radius: 5px"
+          />
+          <h4 style="font-size: 24px">Eyspeedyboy12</h4>
+        </div>
+        <a href="javascript:void(0)" onclick="closesidebar()">
+          <i class="hgi hgi-stroke hgi-cancel-01"></i>
+        </a>
+      </div>
+      <a href="index.html" class="ftu">Home</a>
+      <a href="About.html" class="ftu">About</a>
+      <a href="Gallery.html" class="ftu">Gallery</a>
+      <a href="FAQ.html" class="ftu">FAQ</a>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div
+          style="
+            font-size: clamp(80px, 15vw, 200px);
+            margin: 0 auto;
+            display: flex;
+            width: min-content;
+            height: 0.8em;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            line-height: 0;
+          "
+        >
+          <i
+            class="hgi hgi-stroke hgi-help-circle"
+            style="display: block; line-height: 0"
+          ></i>
+        </div>
+        <h1>FAQ</h1>
+        <p>Frequently asked questions</p>
+      </div>
+    </section>
+
     <main>
-      <div style="font-size: clamp(32px, 4vw, 40px); padding: 10px">
-        <i class="fa-solid fa-question fa-2xl"></i>
+      <div>
+        <h1>[Main Heading]</h1>
+        <hr />
       </div>
-      <h1>FAQ</h1>
-      <hr />
-      <div style="font-size: clamp(32px, 4vw, 40px)">
-        <i class="fa-solid fa-xmark fa-2xl"></i>
-      </div>
-      <h2>Page still in development!!</h2>
-      <h3>— Please wait for the next update. Thank you.</h3>
+
+      <section>
+        <p>Your new content starts here.</p>
+      </section>
     </main>
+
     <footer>
       <div class="row">
         <div class="col">
@@ -68,12 +128,13 @@
               alt="Eyspeedyboy12-logo"
               width="75px"
               style="margin-right: 20px; border-radius: 20px"
+              class="bd"
             />
-            <p>
+            <h4>
               Eyspeedyboy12 shares fun gaming videos on Minecraft, Roblox, and
               Among Us with exciting challenges, adventures, and entertaining
               gameplay.
-            </p>
+            </h4>
           </div>
         </div>
         <div class="col">
@@ -84,40 +145,52 @@
           <div class="inline">
             <a href="index.html" class="ftu">Home</a> |
             <a href="About.html" class="ftu">About</a> |
-            <a href="Gallery.html" class="ftu">Gallery </a> |
+            <a href="Gallery.html" class="ftu">Gallery</a> |
             <a href="Privacy%20Policy.html" class="ftu">Privacy Policy</a> |
             <a href="Terms%20of%20Use.html" class="ftu">Terms of Use</a> |
             <a href="FAQ.html" class="ftu">FAQ</a>
           </div>
         </div>
       </div>
+
       <hr class="footer-hr" />
+
       <div class="social-icons" style="text-align: center">
         <a
-          href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1
-"
+          href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1"
           target="_blank"
-          ><i class="fa-brands fa-youtube"></i
+          ><i class="hgi hgi-stroke hgi-youtube"></i
         ></a>
         <a href="https://www.instagram.com/eyspeedyboy12/" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
+          ><i class="hgi hgi-stroke hgi-instagram"></i>
+        </a>
         <a href="https://www.tiktok.com/@eyspeedyboy12" target="_blank"
-          ><i class="fa-brands fa-tiktok"></i
+          ><i class="hgi hgi-stroke hgi-tiktok"></i
         ></a>
         <a href="https://www.twitch.tv/eyspeedyboy12" target="_blank"
-          ><i class="fa-brands fa-twitch"></i
+          ><i class="hgi hgi-stroke hgi-twitch"></i
         ></a>
         <a href="https://discord.gg/42wzTAJh9M" target="_blank"
-          ><i class="fa-brands fa-discord"></i
+          ><i class="hgi hgi-stroke hgi-discord"></i
         ></a>
         <a
           href="https://bsky.app/profile/eyspeedyboy12.bsky.social"
           target="_blank"
-          ><i class="fa-brands fa-bluesky"></i
+          ><i class="hgi hgi-stroke hgi-bluesky"></i
         ></a>
-        <p>Copyright &copy; 2025 Eyspeedyboy12 - All rights reserved.</p>
+        <h4 style="margin-top: 20px">
+          Copyright &copy; 2025 Eyspeedyboy12 - All rights reserved.
+        </h4>
       </div>
     </footer>
+
+    <script>
+      function showsidebar() {
+        document.querySelector(".sidebar").style.display = "flex";
+      }
+      function closesidebar() {
+        document.querySelector(".sidebar").style.display = "none";
+      }
+    </script>
   </body>
 </html>

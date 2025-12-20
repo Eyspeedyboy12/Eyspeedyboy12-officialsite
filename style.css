@@ -231,7 +231,7 @@ footer {
   height: 60vh;
   min-height: 400px;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 10px;
   margin-bottom: 20px;
 
   background-image: url("Website-banner-1.png");
@@ -408,13 +408,14 @@ footer {
 }
 
 /* --- Social Icons --- */
-.social-icons .fa-brands {
+.social-icons .hgi-stroke {
   display: inline-block;
   position: relative;
   width: 30px;
   height: 30px;
   margin-right: 15px;
   margin-bottom: 15px;
+  font-weight: 600;
 
   color: var(--secondary-color);
   background: var(--text-color);
@@ -429,11 +430,108 @@ footer {
   transition: color 0.3s ease, background 0.3s ease;
 }
 
-.social-icons .fa-brands:hover {
-  color: var(--text-color);
-  background: linear-gradient(90deg, #13beff, #a334ff, #fe7ec8, #13beff);
-  background-size: 300% 300%;
-  animation: bg-pan-right 3s linear infinite;
+.hgi-youtube:hover {
+  background: #ff0000;
+  color: white;
+  animation: yt-pulse 0.6s infinite ease-in-out;
+  border-radius: 50%;
+}
+
+.hgi-instagram:hover {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  color: white; /* Best for solid background hover effects */
+  transform: scale(1.1);
+}
+
+.hgi-tiktok:hover {
+  color: white;
+  background-color: #181818;
+  text-shadow: 2px 2px #fe2c55, -2px -2px #25f4ee;
+  animation: flicker 0.2s ease-out forwards;
+}
+
+.hgi-twitch:hover {
+  background: #9146ff;
+  color: white;
+  animation: twitch-pulse 1s infinite;
+  border-radius: 50%; /* Looks better with a slight curve */
+}
+
+.hgi-discord:hover {
+  background: #5865f2;
+  color: white;
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.hgi-bluesky:hover {
+  background: #0085ff;
+  color: white;
+  border-radius: 50%;
+  /* Runs the flutter animation quickly */
+  animation: butterfly-flutter 0.4s ease-in-out infinite;
+}
+
+/* --- Social icons keyframes --- */
+@keyframes flicker {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes twitch-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(145, 70, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(145, 70, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(145, 70, 255, 0);
+  }
+}
+@keyframes yt-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes butterfly-flutter {
+  0% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(0deg);
+  }
 }
 
 /* --- Theme Switch --- */
