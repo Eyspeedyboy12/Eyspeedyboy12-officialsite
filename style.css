@@ -161,38 +161,72 @@ header img {
   margin-left: auto;
 }
 
-/* Sidebar */
+/* Sidebar Container */
 .sidebar {
   position: fixed;
   top: 0;
   right: 0;
-  height: 400px;
-  width: 250px;
+  height: 100vh; /* Full height */
+  width: 280px;
   z-index: 999;
-  font-size: 24px;
 
-  background: var(--hbg); /* Fixed missing dashes */
+  /* Glassmorphism & Colors */
+  background: var(--hbg, rgba(20, 20, 20, 0.6)); /* Fallback added */
   backdrop-filter: blur(14px) saturate(160%);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5); /* Depth shadow */
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 
-  display: none;
+  /* Layout */
+  display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 10px;
+  align-items: flex-start; /* Aligns content to left */
+  padding: 20px;
+  gap: 10px;
 
-  color: var(--text-color);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-  border-left: 2px solid rgba(255, 255, 255, 0.15);
-  border-bottom-left-radius: 20px;
+  /* Animation Logic (The Magic Part) */
+  transform: translateX(100%); /* Start hidden off-screen to the right */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth slide */
 }
 
-.sidebar a {
-  margin: 3px;
+/* The Active Class - Added via JS */
+.sidebar.active {
+  transform: translateX(0); /* Slide in */
 }
 
+/* Sidebar Links */
+.sidebar a.sbl {
+  width: 100%; /* Make the whole row clickable */
+  padding: 15px;
+  margin: 0; /* Reset default margins */
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--text-color, #fff);
+  border-radius: 12px;
+  transition: background 0.2s, transform 0.2s;
+  display: block; /* Ensures padding works correctly */
+  box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+/* Hover Effect for Links */
+.sidebar a.sbl:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px); /* Little nudge to the right */
+}
+
+/* Fix for the Close Button inside sidebar */
+.sidebar .hgi-cancel-01 {
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text-color, #fff);
+  transition: transform 0.2s;
+}
+
+.sidebar .hgi-cancel-01:hover {
+  transform: scale(1.1) rotate(90deg); /* Spin effect on close */
+}
 .menu-button {
-  display: block;
+  display: none;
 }
 
 /* Main Content */

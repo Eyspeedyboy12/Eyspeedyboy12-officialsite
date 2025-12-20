@@ -75,17 +75,17 @@
             width="40px"
             style="border-radius: 5px"
           />
-          <h4 style="font-size: 24px">Eyspeedyboy12</h4>
+          <h4 style="font-size: 20px">Eyspeedyboy12</h4>
         </div>
         <a href="javascript:void(0)" onclick="closesidebar()">
           <i class="hgi hgi-stroke hgi-cancel-01"></i>
         </a>
       </div>
 
-      <a href="index.html" class="ftu">Home</a>
-      <a href="About.html" class="ftu">About</a>
-      <a href="Gallery.html" class="ftu">Gallery</a>
-      <a href="FAQ.html" class="ftu">FAQ</a>
+      <a href="index.html" class="sbl">Home</a>
+      <a href="About.html" class="sbl">About</a>
+      <a href="Gallery.html" class="sbl">Gallery</a>
+      <a href="FAQ.html" class="sbl">FAQ</a>
     </nav>
 
     <section class="hero">
@@ -253,12 +253,32 @@
     </footer>
 
     <script>
+      // Function to Open Sidebar
       function showsidebar() {
-        document.querySelector(".sidebar").style.display = "flex";
+        const sidebar = document.querySelector(".sidebar");
+        sidebar.classList.add("active");
       }
+
+      // Function to Close Sidebar
       function closesidebar() {
-        document.querySelector(".sidebar").style.display = "none";
+        const sidebar = document.querySelector(".sidebar");
+        sidebar.classList.remove("active");
       }
+
+      // Bonus: Close sidebar if clicking outside of it (Optional but recommended)
+      document.addEventListener("click", function (event) {
+        const sidebar = document.querySelector(".sidebar");
+        const menuButton = document.querySelector(".menu-button");
+
+        // If sidebar is open AND click is NOT on sidebar AND NOT on menu button
+        if (
+          sidebar.classList.contains("active") &&
+          !sidebar.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+          closesidebar();
+        }
+      });
     </script>
   </body>
 </html>
