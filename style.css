@@ -191,7 +191,7 @@ header img {
 }
 
 .menu-button {
-  display: none;
+  display: block;
 }
 
 /* Main Content */
@@ -682,7 +682,7 @@ hr {
 }
 
 @media (max-width: 400px) {
-  .sidebat {
+  .sidebar {
     width: 100%;
   }
 }
