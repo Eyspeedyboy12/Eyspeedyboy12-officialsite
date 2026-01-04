@@ -25,31 +25,28 @@
   <body id="bd1">
     <header>
       <nav class="nav">
-        <div class="nav-left">
-          <img src="Logo.png" alt="Eyspeedyboy12 Logo" />
-          <h4>Eyspeedyboy12</h4>
+        <div class="nav-center">
+          <a href="index.html">Home</a>
+          <a href="About.html">About</a>
+          <a href="Gallery.html">Gallery</a>
+          <a href="FAQ.html">FAQs</a>
         </div>
 
         <div class="nav-right">
-          <a href="index.html" class="hideonmobile">Home</a>
-          <a href="About.html" class="hideonmobile">About</a>
-          <a href="Gallery.html" class="hideonmobile">Gallery</a>
-          <a href="FAQ.html" class="hideonmobile">FAQ</a>
-
-          <button id="theme-switch">
-            <i class="hgi hgi-stroke hgi-moon-02" style="font-size: 20px"></i>
-            <i
-              class="hgi hgi-stroke hgi-sun-03"
-              style="color: #ffffff; font-size: 20px"
-            ></i>
+          <button id="theme-switch" style="color: var(--text-color)">
+            <i class="hgi hgi-stroke hgi-moon-02"></i>
+            <i class="hgi hgi-stroke hgi-sun-03"></i>
           </button>
+          <img src="Logo.png" alt="Logo" class="header-logo" />
           <a
             href="javascript:void(0)"
             onclick="showsidebar()"
-            style="font-size: 24px"
             class="menu-button"
           >
-            <i class="hgi hgi-stroke hgi-menu-01"></i>
+            <i
+              class="hgi hgi-stroke hgi-menu-01"
+              style="color: var(--text-color)"
+            ></i>
           </a>
         </div>
       </nav>
@@ -110,7 +107,7 @@
           ></i>
         </div>
         <h1>Eyspeedyboy12</h1>
-        <p>Gaming • Minecraft • Roblox • Fun</p>
+        <p>Gaming • Minecraft • Geometry Dash • Fun</p>
       </div>
     </section>
 
@@ -123,26 +120,17 @@
       <img src="Ey%20title%20-%20%2301.png" alt="Ey title" width="80%" />
       <hr />
 
-      <div id="sub-count-container">
-        <div
-          style="
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #aaaaaa;
-            margin-bottom: 5px;
-          "
-        >
-          Eyspeedyboy12
-        </div>
-        <div
-          id="sub-count"
-          style="font-size: 36px; font-weight: 800; color: #ffffff"
-        >
-          Loading...
-        </div>
-        <div style="font-size: 12px; margin-top: 5px; color: #ff0000">
-          Live Subscribers
+      <h1>Subscribers</h1>
+
+      <div id="sub-count-outer">
+        <div id="sub-count-container">
+          <div class="status-indicator">
+            <span class="dot"></span>
+            <span class="status-text">Updating Live</span>
+          </div>
+          <div class="channel-name">Eyspeedyboy12</div>
+          <div id="sub-count">Loading...</div>
+          <div class="sub-label">Subscribers</div>
         </div>
       </div>
 
@@ -272,33 +260,6 @@
       </div>
     </footer>
 
-    <script>
-      // Function to Open Sidebar
-      function showsidebar() {
-        const sidebar = document.querySelector(".sidebar");
-        sidebar.classList.add("active");
-      }
-
-      // Function to Close Sidebar
-      function closesidebar() {
-        const sidebar = document.querySelector(".sidebar");
-        sidebar.classList.remove("active");
-      }
-
-      // Bonus: Close sidebar if clicking outside of it (Optional but recommended)
-      document.addEventListener("click", function (event) {
-        const sidebar = document.querySelector(".sidebar");
-        const menuButton = document.querySelector(".menu-button");
-
-        // If sidebar is open AND click is NOT on sidebar AND NOT on menu button
-        if (
-          sidebar.classList.contains("active") &&
-          !sidebar.contains(event.target) &&
-          !menuButton.contains(event.target)
-        ) {
-          closesidebar();
-        }
-      });
-    </script>
+    <script src="sidebar.js"></script>
   </body>
 </html>

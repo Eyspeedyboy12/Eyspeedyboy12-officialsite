@@ -1,5 +1,5 @@
 // Function to Open Sidebar
-      function showsidebar() {
+function showsidebar() {
         const sidebar = document.querySelector(".sidebar");
         sidebar.classList.add("active");
       }
@@ -23,4 +23,4 @@
         ) {
           closesidebar();
         }
-      });
+      });      
