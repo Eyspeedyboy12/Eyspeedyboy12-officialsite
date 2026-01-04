@@ -1,13 +1,13 @@
 /* =====================================================
    1. Base Reset & Typography
    ===================================================== */
-@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Google sans:wght@300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Google sans", sans-serif;
 }
 
 /* Typography Defaults */
@@ -818,4 +818,17 @@ hr {
   .sidebar {
     width: 100%;
   }
+}
+
+#sub-count-container {
+  background: #282828;
+  color: white;
+  padding: 20px;
+  border-radius: 100px;
+  margin: 20px auto;
+  corner-shape: round;
+  justify-content: center;
+  text-align: center;
+  width: 220px;
+  border: 3px solid #ff0000;
 }
