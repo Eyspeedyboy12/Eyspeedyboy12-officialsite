@@ -912,10 +912,45 @@ hr {
     box-shadow: 0 0 0 0 rgba(255, 68, 68, 0);
   }
 }
+
+/* The Moving Fill - Optimized for Perfect Looping */
+.progress-bar-fill {
+  height: 100%;
+  /* To loop perfectly:
+     1. The first color (#36c7ff) MUST be the same as the last color.
+     2. We use 200% width so the 'start' and 'middle' are identical.
+  */
+  background: linear-gradient(90deg, #36c7ff, #a334ff, #fe7ec8, #36c7ff);
+  background-size: 200% 100%; /* Changed from 300% to 200% for easier math */
+  width: 0%;
+  border-radius: 50px;
+  position: relative;
+
+  /* 1. The Width Transition: Smooth sliding when subs increase */
+  transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* 2. The Shimmer: Set to linear for constant speed */
+  animation: seamless-shimmer 3s linear infinite;
+}
+
+/* Perfect Loop Logic:
+   Since the gradient repeats the first color at the end, 
+   moving from 0% to 100% (or 200%) creates a seamless loop.
+*/
+@keyframes seamless-shimmer {
+  0% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Remaining styles kept for layout */
 #sub-count-outer {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; /* Stacks them on small mobile screens */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 85%;
@@ -924,82 +959,18 @@ hr {
 }
 
 .sub-goal-container {
-  flex: 1; /* Takes up the left space */
+  flex: 1;
   min-width: 300px;
   padding: 20px;
   text-align: left;
 }
 
-.goal-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.goal-caption {
-  margin-top: 10px;
-  font-size: 15px;
-  opacity: 0.8;
-}
-
-/* Adjusting your existing sub-count-container to fit side-by-side */
-#sub-count-container {
-  flex: 0 1 auto;
-  min-width: 280px;
-}
-
-/* Progress Bar Container */
 .progress-bar-bg {
   width: 100%;
   height: 20px;
-  background: rgba(255, 255, 255, 0.05); /* Subtle dark track */
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
   position: relative;
-}
-
-/* The Moving Fill */
-.progress-bar-fill {
-  height: 100%;
-  /* Modern Gradient */
-  background: linear-gradient(90deg, #36c7ff, #a334ff, #fe7ec8, #36c7ff);
-  background-size: 300% 100%;
-  width: 0%;
-  border-radius: 50px;
-
-  /* SEAMLESS ANIMATIONS */
-  /* 1. The Width Transition: Smooth sliding when subs increase */
-  transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
-
-  /* 2. The Shimmer: Constant moving colors */
-  animation: seamless-shimmer 4s linear infinite;
-}
-
-/* Smooth Gradient Shimmer */
-@keyframes seamless-shimmer {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Subtle Glow Effect */
-.progress-bar-fill::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0) 50%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
 }

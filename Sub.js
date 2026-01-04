@@ -9,29 +9,37 @@ function updateSubCount() {
       if (data.items && data.items.length > 0) {
         const subCount = parseInt(data.items[0].statistics.subscriberCount);
         
-        // 1. Update the Main Counter Text
+        // Update the number text
         document.getElementById('sub-count').innerText = subCount.toLocaleString();
 
-        // 2. Calculate Progress
-        const progressPercent = Math.min((subCount / GOAL_NUMBER) * 100, 100);
-        const remaining = Math.max(GOAL_NUMBER - subCount, 0);
-
-        // 3. Update Progress Bar and Labels
-        document.getElementById('progress-bar-fill').style.width = progressPercent + "%";
-        document.getElementById('goal-percent').innerText = Math.floor(progressPercent) + "%";
-        
-        if (remaining > 0) {
-            document.getElementById('goal-caption').innerText = `Only ${remaining} more to go until the big 100!`;
-        } else {
-            document.getElementById('goal-caption').innerText = "Goal Reached! New goal coming soon!";
-        }
+        // Update the progress bar and labels
+        updateProgress(subCount);
       }
     })
     .catch(error => console.error('Error fetching YouTube data:', error));
 }
 
+function updateProgress(subCount) {
+    const fill = document.getElementById('progress-bar-fill');
+    const percentText = document.getElementById('goal-percent');
+    const caption = document.getElementById('goal-caption');
+
+    const cleanPercent = Math.min(Math.max((subCount / GOAL_NUMBER) * 100, 0), 100);
+    const remaining = Math.max(GOAL_NUMBER - subCount, 0);
+
+    // This triggers the seamless transition in your CSS
+    fill.style.width = `${cleanPercent}%`;
+    percentText.innerText = `${Math.floor(cleanPercent)}%`;
+    
+    if (remaining > 0) {
+        caption.innerText = `Only ${remaining} more to go until the big 100!`;
+    } else {
+        caption.innerText = "100 Subscribers Reached! New goal coming soon.";
+    }
+}
+
 // Initial Run
 updateSubCount();
 
-// Update every 30 seconds (to save API quota)
+// 30 seconds is a safe interval to stay within your quota
 setInterval(updateSubCount, 30000);
