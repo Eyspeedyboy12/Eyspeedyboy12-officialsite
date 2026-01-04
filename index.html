@@ -123,6 +123,21 @@
       <h1>Subscribers</h1>
 
       <div id="sub-count-outer">
+        <div class="sub-goal-container">
+          <div class="goal-header">
+            <span class="goal-text">Goal to 100 Subscribers</span>
+            <span id="goal-percent" class="goal-percent">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div
+              id="progress-bar-fill"
+              class="progress-bar-fill"
+              style="width: 0%"
+            ></div>
+          </div>
+          <p id="goal-caption" class="goal-caption">Loading progress...</p>
+        </div>
+
         <div id="sub-count-container">
           <div class="status-indicator">
             <span class="dot"></span>
@@ -135,6 +150,8 @@
       </div>
 
       <script src="Sub.js"></script>
+
+      <hr />
 
       <div class="button-container">
         <a
