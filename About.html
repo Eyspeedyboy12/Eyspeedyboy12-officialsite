@@ -21,7 +21,7 @@
       <nav class="nav">
         <div class="nav-center">
           <a href="index.html">Home</a>
-          <a href="About.html">About</a>
+          <a href="About.html" class="active">About</a>
           <a href="Gallery.html">Gallery</a>
           <a href="FAQ.html">FAQs</a>
         </div>
@@ -107,13 +107,39 @@
 
     <main>
       <div>
-        <h1>[Main Heading]</h1>
+        <h1>About Me</h1>
         <hr />
       </div>
 
-      <section>
-        <div class="about-section">This is about</div>
-        <p>Your new content starts here.</p>
+      <section class="about-container">
+        <div class="about-section">
+          <p>
+            I'm <strong>Eyspeedyboy12</strong>, a passionate creator dedicated
+            to sharing the best of gaming. From technical
+            <strong>Minecraft</strong> builds to high-speed
+            <strong>Asphalt</strong> races, I love exploring different worlds
+            and building a community of gamers who enjoy fun, relatable content.
+          </p>
+        </div>
+
+        <div class="row" style="margin-top: 40px">
+          <div class="about-section2">
+            <i
+              class="hgi hgi-stroke hgi-clapperboard-01"
+              style="font-size: 40px; color: #36c7ff"
+            ></i>
+            <h3>Content Creator</h3>
+            <p>Posting weekly gaming videos on YouTube and TikTok.</p>
+          </div>
+          <div class="about-section2">
+            <i
+              class="hgi hgi-stroke hgi-game-controller-03"
+              style="font-size: 40px; color: #a334ff"
+            ></i>
+            <h3>Variety Gamer</h3>
+            <p>Expert in Geometry Dash, Roblox, and Minecraft Survival.</p>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -177,38 +203,11 @@
           ><i class="hgi hgi-stroke hgi-bluesky"></i
         ></a>
         <h4 style="margin-top: 20px">
-          Copyright &copy; 2025 Eyspeedyboy12 - All rights reserved.
+          Copyright &copy; 2026 Eyspeedyboy12 - All rights reserved.
         </h4>
       </div>
     </footer>
 
-    <script>
-      // Function to Open Sidebar
-      function showsidebar() {
-        const sidebar = document.querySelector(".sidebar");
-        sidebar.classList.add("active");
-      }
-
-      // Function to Close Sidebar
-      function closesidebar() {
-        const sidebar = document.querySelector(".sidebar");
-        sidebar.classList.remove("active");
-      }
-
-      // Bonus: Close sidebar if clicking outside of it (Optional but recommended)
-      document.addEventListener("click", function (event) {
-        const sidebar = document.querySelector(".sidebar");
-        const menuButton = document.querySelector(".menu-button");
-
-        // If sidebar is open AND click is NOT on sidebar AND NOT on menu button
-        if (
-          sidebar.classList.contains("active") &&
-          !sidebar.contains(event.target) &&
-          !menuButton.contains(event.target)
-        ) {
-          closesidebar();
-        }
-      });
-    </script>
+    <script src="sidebar.js"></script>
   </body>
 </html>
