@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -14,14 +14,11 @@
     <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
 
     <script type="text/javascript" src="darkmode.js" defer></script>
+    <script type="text/javascript" src="about-animations.js" defer></script>
     <script
       src="https://kit.fontawesome.com/a21bb79a38.js"
       crossorigin="anonymous"
     ></script>
-
-    <style>
-      
-    </style>
   </head>
   <body id="bd1">
     <header>
@@ -95,16 +92,17 @@
             margin: 0 auto;
             display: flex;
             width: min-content;
-            height: 0.8em;
+            height: auto;
             align-items: center;
             justify-content: center;
             overflow: visible;
-            line-height: 0;
+            line-height: 1;
+            padding: 0.2em 0;
           "
         >
           <i
             class="hgi hgi-stroke hgi-user-circle"
-            style="display: block; line-height: 0"
+            style="display: block; line-height: 1"
           ></i>
         </div>
         <h1>About Me</h1>
@@ -113,51 +111,166 @@
     </section>
 
     <main>
-      <div>
-        <h1>Who Am I?</h1>
-        <hr />
-      </div>
-
-      <section class="about-container">
-        <div class="about-section">
-          <p style="font-size: 20px; line-height: 1.8">
-            Hey! I'm <strong style="color: #36c7ff">Eyspeedyboy12</strong>, a
-            gaming content creator who loves sharing epic moments, hilarious
-            fails, and creative builds with the world. Whether I'm conquering
-            impossible Geometry Dash levels, building massive structures in
-            Minecraft, or racing through Asphalt at breakneck speeds, I'm all
-            about bringing you entertaining content that makes you want to game
-            harder!
-          </p>
+      <!-- Profile Introduction -->
+      <section class="profile-intro fade-in-section">
+        <div class="section-header">
+          <h1>
+            <i class="hgi hgi-stroke hgi-user-circle"></i>
+            Who Am I?
+          </h1>
+          <hr style="width: 60%; margin: 20px auto" />
         </div>
 
-        <!-- Stats Grid -->
-        <h2 style="margin-top: 60px">Channel Stats</h2>
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <img src="Logo.png" alt="Eyspeedyboy12" />
+            <div class="profile-badge">
+              <i class="hgi hgi-stroke hgi-check-mark-01"></i>
+              <span>Verified Creator</span>
+            </div>
+          </div>
+
+          <div class="profile-content">
+            <h2 class="profile-name">Eyspeedyboy12</h2>
+            <p class="profile-tagline">
+              <i class="hgi hgi-stroke hgi-gaming"></i>
+              Gaming Content Creator • Minecraft • Geometry Dash • Fun
+            </p>
+
+            <p class="profile-bio">
+              Hey! I'm <strong style="color: #36c7ff">Eyspeedyboy12</strong>, a
+              gaming content creator who loves sharing epic moments, hilarious
+              fails, and creative builds with the world. Whether I'm conquering
+              impossible Geometry Dash levels, building massive structures in
+              Minecraft, or racing through Asphalt at breakneck speeds, I'm all
+              about bringing you entertaining content that makes you want to
+              game harder!
+            </p>
+
+            <div class="profile-stats-mini">
+              <div class="mini-stat">
+                <i class="hgi hgi-stroke hgi-calendar-03"></i>
+                <span>Started 2022</span>
+              </div>
+              <div class="mini-stat">
+                <i class="hgi hgi-stroke hgi-location-01"></i>
+                <span>Global Gaming</span>
+              </div>
+              <div class="mini-stat">
+                <i class="hgi hgi-stroke hgi-rocket"></i>
+                <span>Growing Fast</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fun Facts Section -->
+      <section class="fun-facts-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-star"></i>
+            Fun Facts About Me
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div class="fun-facts-grid">
+          <div class="fact-card">
+            <div class="fact-icon">🎮</div>
+            <h3>First Game</h3>
+            <p>
+              Started my gaming journey with Minecraft and never looked back!
+            </p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon">⚡</div>
+            <h3>Speed Runner</h3>
+            <p>Love the rush of speedrunning challenges and beating records!</p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon">🏆</div>
+            <h3>Achievement Hunter</h3>
+            <p>
+              Can't resist collecting every achievement in the games I play!
+            </p>
+          </div>
+
+          <div class="fact-card">
+            <div class="fact-icon">🎨</div>
+            <h3>Creative Builder</h3>
+            <p>Spent hours perfecting builds and making epic creations!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Channel Stats -->
+      <section class="stats-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-chart-increase"></i>
+            Channel Stats
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
         <div class="stats-grid">
-          <div class="stat-card">
+          <div class="stat-card stat-card-hover">
             <i class="hgi hgi-stroke hgi-youtube stat-icon"></i>
-            <div class="stat-number" id="youtube-subs">--</div>
+            <div
+              class="stat-number counter-animate"
+              data-target="85"
+              id="youtube-subs"
+            >
+              0
+            </div>
             <div class="stat-label">Subscribers</div>
           </div>
-          <div class="stat-card">
+
+          <div class="stat-card stat-card-hover">
             <i class="hgi hgi-stroke hgi-video-01 stat-icon"></i>
-            <div class="stat-number" id="video-count">50+</div>
+            <div
+              class="stat-number counter-animate"
+              data-target="50"
+              id="video-count"
+            >
+              0
+            </div>
             <div class="stat-label">Videos</div>
           </div>
-          <div class="stat-card">
+
+          <div class="stat-card stat-card-hover">
             <i class="hgi hgi-stroke hgi-eye stat-icon"></i>
-            <div class="stat-number" id="total-views">--</div>
+            <div
+              class="stat-number counter-animate"
+              data-target="12500"
+              id="total-views"
+            >
+              0
+            </div>
             <div class="stat-label">Total Views</div>
           </div>
-          <div class="stat-card">
-            <i class="hgi hgi-stroke hgi-game-controller-03 stat-icon"></i>
-            <div class="stat-number">6+</div>
+
+          <div class="stat-card stat-card-hover">
+            <i class="hgi hgi-stroke hgi-gaming stat-icon"></i>
+            <div class="stat-number counter-animate" data-target="6">0</div>
             <div class="stat-label">Games Played</div>
           </div>
         </div>
+      </section>
 
-        <!-- My Journey Timeline -->
-        <h2 style="margin-top: 60px">My Journey</h2>
+      <!-- Journey Timeline -->
+      <section class="timeline-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-clock-01"></i>
+            My Journey
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-content">
@@ -195,9 +308,18 @@
             <div class="timeline-dot"></div>
           </div>
         </div>
+      </section>
 
-        <!-- Gaming Skills -->
-        <h2 style="margin-top: 60px">Gaming Expertise</h2>
+      <!-- Gaming Skills -->
+      <section class="skills-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-award-01"></i>
+            Gaming Expertise
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
         <div class="skills-container">
           <div class="skill-item">
             <div class="skill-header">
@@ -208,7 +330,11 @@
               <div class="skill-level">95%</div>
             </div>
             <div class="skill-bar">
-              <div class="skill-progress" style="width: 95%"></div>
+              <div
+                class="skill-progress"
+                data-width="95"
+                style="width: 0%"
+              ></div>
             </div>
           </div>
 
@@ -224,20 +350,11 @@
               <div class="skill-level">88%</div>
             </div>
             <div class="skill-bar">
-              <div class="skill-progress" style="width: 88%"></div>
-            </div>
-          </div>
-
-          <div class="skill-item">
-            <div class="skill-header">
-              <div class="skill-name">
-                <i class="hgi hgi-stroke hgi-car-01" style="color: #fe7ec8"></i>
-                Asphalt Racing
-              </div>
-              <div class="skill-level">82%</div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" style="width: 82%"></div>
+              <div
+                class="skill-progress"
+                data-width="88"
+                style="width: 0%"
+              ></div>
             </div>
           </div>
 
@@ -245,21 +362,225 @@
             <div class="skill-header">
               <div class="skill-name">
                 <i
-                  class="hgi hgi-stroke hgi-game-controller-02"
-                  style="color: #13beff"
+                  class="hgi hgi-stroke hgi-dashboard-speed-01"
+                  style="color: #fe7ec8"
                 ></i>
-                Roblox Adventures
+                Racing Games
+              </div>
+              <div class="skill-level">85%</div>
+            </div>
+            <div class="skill-bar">
+              <div
+                class="skill-progress"
+                data-width="85"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header">
+              <div class="skill-name">
+                <i class="hgi hgi-stroke hgi-gaming" style="color: #13beff"></i>
+                Content Creation
               </div>
               <div class="skill-level">90%</div>
             </div>
             <div class="skill-bar">
-              <div class="skill-progress" style="width: 90%"></div>
+              <div
+                class="skill-progress"
+                data-width="90"
+                style="width: 0%"
+              ></div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Find Me On -->
-        <h2 style="margin-top: 60px">Where to Find Me</h2>
+      <!-- Favorite Games Showcase -->
+      <section class="favorite-games-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-favorite"></i>
+            My Favorite Games
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div class="games-showcase">
+          <div class="game-showcase-card">
+            <img src="icon1.png" alt="Minecraft" />
+            <h3>Minecraft</h3>
+            <p>Building epic creations and survival adventures</p>
+            <div class="game-stats">
+              <span
+                ><i class="hgi hgi-stroke hgi-clock-01"></i> 500+ Hours</span
+              >
+            </div>
+          </div>
+
+          <div class="game-showcase-card">
+            <img src="icon6.png" alt="Geometry Dash" />
+            <h3>Geometry Dash</h3>
+            <p>Mastering impossible levels and crazy challenges</p>
+            <div class="game-stats">
+              <span
+                ><i class="hgi hgi-stroke hgi-clock-01"></i> 300+ Hours</span
+              >
+            </div>
+          </div>
+
+          <div class="game-showcase-card">
+            <img src="icon2.png" alt="Asphalt" />
+            <h3>Asphalt Legends</h3>
+            <p>High-speed racing action and stunts</p>
+            <div class="game-stats">
+              <span
+                ><i class="hgi hgi-stroke hgi-clock-01"></i> 200+ Hours</span
+              >
+            </div>
+          </div>
+
+          <div class="game-showcase-card">
+            <img src="icon3.png" alt="Roblox" />
+            <h3>Roblox</h3>
+            <p>Exploring endless worlds and experiences</p>
+            <div class="game-stats">
+              <span
+                ><i class="hgi hgi-stroke hgi-clock-01"></i> 250+ Hours</span
+              >
+            </div>
+          </div>
+
+          <div class="game-showcase-card">
+            <img src="icon5.png" alt="Among Us" />
+            <h3>Among Us</h3>
+            <p>Detective work and impostor strategies</p>
+            <div class="game-stats">
+              <span
+                ><i class="hgi hgi-stroke hgi-clock-01"></i> 150+ Hours</span
+              >
+            </div>
+          </div>
+
+          <div class="game-showcase-card">
+            <img src="icon4.png" alt="Melon Playground" />
+            <h3>Melon Playground</h3>
+            <p>Creative chaos and physics experiments</p>
+            <div class="game-stats">
+              <span
+                ><i class="hgi hgi-stroke hgi-clock-01"></i> 100+ Hours</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- My Setup -->
+      <section class="setup-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-computer-settings"></i>
+            My Setup
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div class="setup-grid">
+          <div class="about-section2">
+            <i
+              class="hgi hgi-stroke hgi-video-02"
+              style="font-size: 40px; color: #36c7ff"
+            ></i>
+            <h3>Recording</h3>
+            <p>
+              Screen capture software with high-quality settings for crisp
+              gameplay footage
+            </p>
+          </div>
+
+          <div class="about-section2">
+            <i
+              class="hgi hgi-stroke hgi-pencil-edit-02"
+              style="font-size: 40px; color: #a334ff"
+            ></i>
+            <h3>Editing</h3>
+            <p>
+              Professional editing software to bring you the most entertaining
+              content
+            </p>
+          </div>
+
+          <div class="about-section2">
+            <i
+              class="hgi hgi-stroke hgi-analytics-01"
+              style="font-size: 40px; color: #fe7ec8"
+            ></i>
+            <h3>Growth</h3>
+            <p>Always improving content based on your feedback and comments!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements Section -->
+      <section class="achievements-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-trophy"></i>
+            Achievements Unlocked
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div class="achievements-grid">
+          <div class="achievement-badge">
+            <div class="badge-icon">🏆</div>
+            <h4>First 50 Subs</h4>
+            <p>Reached the first milestone!</p>
+          </div>
+
+          <div class="achievement-badge">
+            <div class="badge-icon">📹</div>
+            <h4>50 Videos</h4>
+            <p>Half a hundred uploads!</p>
+          </div>
+
+          <div class="achievement-badge">
+            <div class="badge-icon">👁️</div>
+            <h4>10K Views</h4>
+            <p>Hit 10,000 total views!</p>
+          </div>
+
+          <div class="achievement-badge locked">
+            <div class="badge-icon">🎯</div>
+            <h4>100 Subscribers</h4>
+            <p>Coming soon...</p>
+          </div>
+
+          <div class="achievement-badge locked">
+            <div class="badge-icon">💯</div>
+            <h4>100 Videos</h4>
+            <p>On the way!</p>
+          </div>
+
+          <div class="achievement-badge locked">
+            <div class="badge-icon">⭐</div>
+            <h4>Verified Badge</h4>
+            <p>The dream goal!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Connect Section -->
+      <section class="connect-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-share-01"></i>
+            Where to Find Me
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
         <div class="platform-grid">
           <a
             href="https://www.youtube.com/@eyspeedyboy12"
@@ -267,13 +588,15 @@
             style="text-decoration: none"
           >
             <div class="platform-card">
-              <i
-                class="hgi hgi-stroke hgi-youtube platform-icon"
-                style="color: #ff0000"
-              ></i>
+              <div class="platform-icon">
+                <i
+                  class="hgi hgi-stroke hgi-youtube"
+                  style="color: #ff0000"
+                ></i>
+              </div>
               <div class="platform-name">YouTube</div>
               <div class="platform-handle">@Eyspeedyboy12</div>
-              <p style="font-size: 14px; color: #888">Main content hub</p>
+              <p class="platform-desc">Main content hub with full videos</p>
             </div>
           </a>
 
@@ -283,13 +606,12 @@
             style="text-decoration: none"
           >
             <div class="platform-card">
-              <i
-                class="hgi hgi-stroke hgi-tiktok platform-icon"
-                style="color: #000"
-              ></i>
+              <div class="platform-icon">
+                <i class="hgi hgi-stroke hgi-tiktok"></i>
+              </div>
               <div class="platform-name">TikTok</div>
               <div class="platform-handle">@eyspeedyboy12</div>
-              <p style="font-size: 14px; color: #888">Short gaming clips</p>
+              <p class="platform-desc">Short gaming clips and highlights</p>
             </div>
           </a>
 
@@ -299,15 +621,15 @@
             style="text-decoration: none"
           >
             <div class="platform-card">
-              <i
-                class="hgi hgi-stroke hgi-discord platform-icon"
-                style="color: #5865f2"
-              ></i>
+              <div class="platform-icon">
+                <i
+                  class="hgi hgi-stroke hgi-discord"
+                  style="color: #5865f2"
+                ></i>
+              </div>
               <div class="platform-name">Discord</div>
               <div class="platform-handle">Join Server</div>
-              <p style="font-size: 14px; color: #888">
-                Hang out with the community
-              </p>
+              <p class="platform-desc">Hang out with the community</p>
             </div>
           </a>
 
@@ -317,48 +639,79 @@
             style="text-decoration: none"
           >
             <div class="platform-card">
-              <i
-                class="hgi hgi-stroke hgi-instagram platform-icon"
-                style="color: #e4405f"
-              ></i>
+              <div class="platform-icon">
+                <i
+                  class="hgi hgi-stroke hgi-instagram"
+                  style="color: #e4405f"
+                ></i>
+              </div>
               <div class="platform-name">Instagram</div>
               <div class="platform-handle">@eyspeedyboy12</div>
-              <p style="font-size: 14px; color: #888">Behind the scenes</p>
+              <p class="platform-desc">Behind the scenes content</p>
+            </div>
+          </a>
+
+          <a
+            href="https://www.twitch.tv/eyspeedyboy12"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <div class="platform-card">
+              <div class="platform-icon">
+                <i class="hgi hgi-stroke hgi-twitch" style="color: #9146ff"></i>
+              </div>
+              <div class="platform-name">Twitch</div>
+              <div class="platform-handle">Eyspeedyboy12</div>
+              <p class="platform-desc">Live gaming streams</p>
+            </div>
+          </a>
+
+          <a
+            href="https://bsky.app/profile/eyspeedyboy12.bsky.social"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <div class="platform-card">
+              <div class="platform-icon">
+                <i
+                  class="hgi hgi-stroke hgi-bluesky"
+                  style="color: #0085ff"
+                ></i>
+              </div>
+              <div class="platform-name">Bluesky</div>
+              <div class="platform-handle">eyspeedyboy12</div>
+              <p class="platform-desc">Updates and interactions</p>
             </div>
           </a>
         </div>
+      </section>
 
-        <!-- What I Use -->
-        <h2 style="margin-top: 60px">My Setup</h2>
-        <div class="row" style="margin-top: 40px">
-          <div class="about-section2">
-            <i
-              class="hgi hgi-stroke hgi-video-02"
-              style="font-size: 40px; color: #36c7ff"
-            ></i>
-            <h3>Recording</h3>
-            <p>
-              Screen capture software with high-quality settings for crisp
-              gameplay
-            </p>
-          </div>
-          <div class="about-section2">
-            <i
-              class="hgi hgi-stroke hgi-pencil-edit-02"
-              style="font-size: 40px; color: #a334ff"
-            ></i>
-            <h3>Editing</h3>
-            <p>
-              Professional editing to bring you the most entertaining content
-            </p>
-          </div>
-          <div class="about-section2">
-            <i
-              class="hgi hgi-stroke hgi-analytics-01"
-              style="font-size: 40px; color: #fe7ec8"
-            ></i>
-            <h3>Growth</h3>
-            <p>Always improving content based on your feedback and comments!</p>
+      <!-- Call to Action -->
+      <section class="about-cta-section fade-in-section">
+        <div class="cta-card">
+          <h2>Want to Collaborate?</h2>
+          <p>
+            I'm always open to collaborating with other creators! If you have an
+            idea for a collab video or just want to game together, reach out on
+            Discord or Instagram.
+          </p>
+          <div class="button-container" style="margin-top: 30px">
+            <a
+              href="https://discord.gg/42wzTAJh9M"
+              target="_blank"
+              class="link-button2"
+            >
+              <i class="hgi hgi-stroke hgi-discord"></i>
+              Message on Discord
+            </a>
+            <a
+              href="https://www.instagram.com/eyspeedyboy12/"
+              target="_blank"
+              class="link-button2"
+            >
+              <i class="hgi hgi-stroke hgi-instagram"></i>
+              DM on Instagram
+            </a>
           </div>
         </div>
       </section>
@@ -431,54 +784,5 @@
     </footer>
 
     <script src="sidebar.js"></script>
-    <script>
-      // Animate skill bars on page load
-      window.addEventListener("load", () => {
-        const skillBars = document.querySelectorAll(".skill-progress");
-        skillBars.forEach((bar) => {
-          const width = bar.style.width;
-          bar.style.width = "0%";
-          setTimeout(() => {
-            bar.style.width = width;
-          }, 100);
-        });
-      });
-
-      // Fetch YouTube stats
-      async function fetchYouTubeStats() {
-        const channelId = "UCtLShIQUv-vRmiCunUZV-YA";
-        try {
-          // Note: You'll need to implement an API call here with your YouTube API key
-          // For now, using placeholder animation
-          animateNumber("youtube-subs", 0, 85, 2000);
-          animateNumber("total-views", 0, 12500, 2500, "K");
-        } catch (error) {
-          console.log("Stats loading...");
-          document.getElementById("youtube-subs").textContent = "85+";
-          document.getElementById("total-views").textContent = "12K+";
-        }
-      }
-
-      function animateNumber(id, start, end, duration, suffix = "") {
-        const element = document.getElementById(id);
-        const range = end - start;
-        const increment = range / (duration / 16);
-        let current = start;
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= end) {
-            current = end;
-            clearInterval(timer);
-          }
-          element.textContent =
-            Math.floor(current) +
-            (suffix ? suffix : "") +
-            (current >= end ? "+" : "");
-        }, 16);
-      }
-
-      fetchYouTubeStats();
-    </script>
   </body>
 </html>

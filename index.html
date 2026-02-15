@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,12 +11,16 @@
       name="google-site-verification"
       content="QOaxKwsABLWVFsnETWZq2e4PwRiO2Z-s5tgPIhNvfHc"
     />
-    <meta name="description" content="Eyspeedyboy12's Official site" />
+    <meta
+      name="description"
+      content="Eyspeedyboy12's Official site - Gaming content creator featuring Minecraft, Roblox, Geometry Dash, and more!"
+    />
     <title>Eyspeedyboy12 - Official site</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
     <script type="text/javascript" src="darkmode.js" defer></script>
+    <script type="text/javascript" src="home-animations.js" defer></script>
     <script
       src="https://kit.fontawesome.com/a21bb79a38.js"
       crossorigin="anonymous"
@@ -85,7 +89,8 @@
       <a href="FAQ.html" class="sbl">FAQ</a>
     </nav>
 
-    <section class="hero">
+    <!-- Enhanced Hero Section -->
+    <section class="hero hero-animated">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div
@@ -93,194 +98,477 @@
             font-size: clamp(80px, 15vw, 200px);
             margin: 0 auto;
             display: flex;
-            width: min-content; /* Forces width to be exactly the icon width */
-            height: 0.8em; /* Manually crops the invisible bottom gap */
+            width: min-content;
+            height: auto;
             align-items: center;
             justify-content: center;
-            overflow: visible; /* Ensures the icon isn't actually cut off */
-            line-height: 0;
+            overflow: visible;
+            line-height: 1;
+            padding: 0.2em 0;
           "
         >
           <i
-            class="hgi hgi-stroke hgi-house-03"
-            style="display: block; line-height: 0"
+            class="hgi hgi-stroke hgi-house-03 hero-icon-pulse"
+            style="display: block; line-height: 1"
           ></i>
         </div>
-        <h1>Eyspeedyboy12</h1>
-        <p>Gaming • Minecraft • Geometry Dash • Fun</p>
+        <h1 class="hero-title-fade">Eyspeedyboy12</h1>
+        <p class="hero-subtitle-fade">
+          Gaming • Minecraft • Geometry Dash • Fun
+        </p>
+
+        <!-- Quick Stats in Hero -->
+        <div class="hero-quick-stats">
+          <div class="hero-stat">
+            <i class="hgi hgi-stroke hgi-youtube"></i>
+            <span id="hero-subs">Loading...</span>
+            <small>Subscribers</small>
+          </div>
+          <div class="hero-stat">
+            <i class="hgi hgi-stroke hgi-video-01"></i>
+            <span id="hero-videos">50+</span>
+            <small>Videos</small>
+          </div>
+          <div class="hero-stat">
+            <i class="hgi hgi-stroke hgi-user-multiple"></i>
+            <span id="hero-community">1K+</span>
+            <small>Community</small>
+          </div>
+        </div>
+
+        <div class="hero-cta-buttons">
+          <a
+            href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1"
+            target="_blank"
+            class="hero-cta-primary"
+          >
+            <i class="hgi hgi-stroke hgi-youtube"></i>
+            Subscribe Now
+          </a>
+          <a href="Gallery.html" class="hero-cta-secondary">
+            <i class="hgi hgi-stroke hgi-play-list"></i>
+            Watch Videos
+          </a>
+        </div>
       </div>
     </section>
 
     <main>
-      <div>
-        <h1>Home</h1>
+      <!-- Welcome Section -->
+      <div class="section-header fade-in-section">
+        <h1>Welcome to Eyspeedyboy12's World</h1>
         <hr />
       </div>
-      <h2>Welcome to Eyspeedyboy12's website</h2>
-      <img src="Ey%20title%20-%20%2301.png" alt="Ey title" width="80%" />
 
-      <hr />
+      <div class="welcome-banner fade-in-section">
+        <img
+          src="Ey%20title%20-%20%2301.png"
+          alt="Ey title"
+          class="welcome-image"
+        />
+      </div>
 
-      <div
-        style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 40px;
-          margin: 50px auto;
-          max-width: 900px;
-          flex-wrap: wrap;
-          color: var(--text-color);
-          font-family: sans-serif;
-        "
-      >
-        <div>
-          <iframe
-            width="315"
-            height="560"
-            src="https://www.youtube.com/embed/TnTB0d6jOPA"
-            frameborder="0"
-            style="border-radius: 15px"
-            allowfullscreen
-          ></iframe>
+      <!-- Latest Video Showcase -->
+      <section class="latest-video-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-video-01"></i>
+            Latest Upload
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
         </div>
 
-        <div style="text-align: left; min-width: 250px">
-          <h2 style="margin: 0; font-size: 2.5rem">
-            My most <br />
-            recent video
-          </h2>
+        <div class="latest-video-container">
+          <div class="video-player-wrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/TnTB0d6jOPA"
+              frameborder="0"
+              style="border-radius: 15px"
+              allowfullscreen
+            ></iframe>
+          </div>
 
-          <p
-            id="view-count"
-            style="
-              color: #ff0000;
-              font-weight: bold;
-              font-size: 1.2rem;
-              margin-top: 15px;
-            "
-          >
-            Loading views...
+          <div class="video-info-card">
+            <div class="video-badge">
+              <i class="hgi hgi-stroke hgi-star"></i>
+              <span>LATEST</span>
+            </div>
+            <h3>Geometry Dash: The 85% Coin Struggle</h3>
+            <div class="video-stats">
+              <div class="stat-item">
+                <i class="hgi hgi-stroke hgi-view"></i>
+                <span id="view-count">Loading views...</span>
+              </div>
+              <div class="stat-item">
+                <i class="hgi hgi-stroke hgi-thumbs-up"></i>
+                <span>Epic Gameplay</span>
+              </div>
+            </div>
+            <p class="video-description">
+              Watch me struggle through one of the toughest coin challenges in
+              Geometry Dash! Can I finally beat it? Find out in this epic
+              attempt!
+            </p>
+            <a
+              href="https://www.youtube.com/@Eyspeedyboy12"
+              target="_blank"
+              class="link-button2"
+            >
+              <i class="hgi hgi-stroke hgi-youtube"></i>
+              Watch More Videos
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subscriber Milestone Section -->
+      <section class="subscriber-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-youtube"></i>
+            Join the Community
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div id="sub-count-outer">
+          <div id="sub-count-container" class="sub-count-card">
+            <div class="status-indicator">
+              <span class="dot"></span>
+              <span class="status-text">Live</span>
+            </div>
+            <div class="channel-name">Eyspeedyboy12</div>
+            <div id="sub-count" class="counter-animate">Loading...</div>
+            <div class="sub-label">Subscribers</div>
+          </div>
+
+          <div class="sub-goal-container">
+            <div class="goal-header">
+              <span class="goal-text">
+                <i class="hgi hgi-stroke hgi-target-01"></i>
+                Road to 100 Subscribers
+              </span>
+              <span id="goal-percent" class="goal-percent">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div
+                id="progress-bar-fill"
+                class="progress-bar-fill"
+                style="width: 0%"
+              ></div>
+            </div>
+            <p id="goal-caption" class="goal-caption">Loading progress...</p>
+
+            <div class="milestone-info">
+              <p>
+                <i class="hgi hgi-stroke hgi-rocket"></i>
+                Every subscriber helps us reach new milestones! Join the journey
+                and be part of something awesome.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Grid -->
+      <section class="stats-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-chart-increase"></i>
+            Channel Stats
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card stat-card-hover">
+            <div class="stat-icon">
+              <i class="hgi hgi-stroke hgi-video-01"></i>
+            </div>
+            <div class="stat-number counter-animate" data-target="50">0</div>
+            <div class="stat-label">Videos Uploaded</div>
+          </div>
+
+          <div class="stat-card stat-card-hover">
+            <div class="stat-icon">
+              <i class="hgi hgi-stroke hgi-clock-01"></i>
+            </div>
+            <div class="stat-number counter-animate" data-target="100">0</div>
+            <div class="stat-label">Hours of Content</div>
+          </div>
+
+          <div class="stat-card stat-card-hover">
+            <div class="stat-icon">
+              <i class="hgi hgi-stroke hgi-gaming"></i>
+            </div>
+            <div class="stat-number counter-animate" data-target="6">0</div>
+            <div class="stat-label">Games Featured</div>
+          </div>
+
+          <div class="stat-card stat-card-hover">
+            <div class="stat-icon">
+              <i class="hgi hgi-stroke hgi-user-group"></i>
+            </div>
+            <div class="stat-number counter-animate" data-target="1000">0</div>
+            <div class="stat-label">Community Members</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Games Showcase -->
+      <section class="games-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-gaming"></i>
+            Games I Play
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div class="marquee-container">
+          <div class="marquee-track">
+            <div class="game-card">
+              <img src="icon1.png" alt="Minecraft" /> <span>Minecraft</span>
+            </div>
+            <div class="game-card">
+              <img src="icon2.png" alt="Asphalt" /> <span>Asphalt</span>
+            </div>
+            <div class="game-card">
+              <img src="icon3.png" alt="Roblox" /> <span>Roblox</span>
+            </div>
+            <div class="game-card">
+              <img src="icon4.png" alt="Melon Playground" />
+              <span>Melon Playground</span>
+            </div>
+            <div class="game-card">
+              <img src="icon5.png" alt="Among Us" /> <span>Among Us</span>
+            </div>
+            <div class="game-card">
+              <img src="icon6.png" alt="Geometry Dash" />
+              <span>Geometry Dash</span>
+            </div>
+
+            <!-- Duplicate for seamless loop -->
+            <div class="game-card">
+              <img src="icon1.png" alt="Minecraft" /> <span>Minecraft</span>
+            </div>
+            <div class="game-card">
+              <img src="icon2.png" alt="Asphalt" /> <span>Asphalt</span>
+            </div>
+            <div class="game-card">
+              <img src="icon3.png" alt="Roblox" /> <span>Roblox</span>
+            </div>
+            <div class="game-card">
+              <img src="icon4.png" alt="Melon Playground" />
+              <span>Melon Playground</span>
+            </div>
+            <div class="game-card">
+              <img src="icon5.png" alt="Among Us" /> <span>Among Us</span>
+            </div>
+            <div class="game-card">
+              <img src="icon6.png" alt="Geometry Dash" />
+              <span>Geometry Dash</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Subscribe Section -->
+      <section class="why-subscribe-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-star"></i>
+            Why Subscribe?
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="hgi hgi-stroke hgi-video-01"></i>
+            </div>
+            <h3>Fresh Content</h3>
+            <p>
+              New gaming videos uploaded regularly featuring epic gameplay,
+              challenges, and fun moments!
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="hgi hgi-stroke hgi-user-group"></i>
+            </div>
+            <h3>Awesome Community</h3>
+            <p>
+              Join our Discord server and connect with fellow gamers, share
+              tips, and participate in events!
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="hgi hgi-stroke hgi-live"></i>
+            </div>
+            <h3>Live Streams</h3>
+            <p>
+              Catch me live on Twitch for real-time gaming action and
+              interactive gameplay sessions!
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="hgi hgi-stroke hgi-gaming"></i>
+            </div>
+            <h3>Varied Games</h3>
+            <p>
+              From Minecraft builds to Geometry Dash challenges - there's
+              something for every gamer!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section class="cta-section fade-in-section">
+        <div class="cta-card">
+          <h2>Ready to Join the Adventure?</h2>
+          <p>
+            Subscribe now and never miss a video! Hit that notification bell to
+            stay updated with all my latest content.
           </p>
 
-          <p style="color: #888">Geometry Dash: The 85% Coin Struggle</p>
-        </div>
-      </div>
-
-      <hr />
-
-      <h1>Subscribers</h1>
-      <img src="YouTube Logo.svg" width="100px" />
-
-      <div id="sub-count-outer">
-        <div class="sub-goal-container">
-          <div class="goal-header">
-            <span class="goal-text">Goal to 100 Subscribers</span>
-            <span id="goal-percent" class="goal-percent">0%</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div
-              id="progress-bar-fill"
-              class="progress-bar-fill"
-              style="width: 0%"
-            ></div>
-          </div>
-          <p id="goal-caption" class="goal-caption">Loading progress...</p>
-        </div>
-
-        <div id="sub-count-container">
-          <div class="status-indicator">
-            <span class="dot"></span>
-            <span class="status-text">Updating Live</span>
-          </div>
-          <div class="channel-name">Eyspeedyboy12</div>
-          <div id="sub-count">Loading...</div>
-          <div class="sub-label">Subscribers</div>
-        </div>
-      </div>
-
-      <hr />
-
-      <div class="button-container">
-        <a
-          href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1"
-          target="_blank"
-          class="link-button2"
-          >Sub to my YouTube Channel</a
-        >
-        <a
-          href="https://www.instagram.com/eyspeedyboy12/"
-          target="_blank"
-          class="link-button2"
-          >Follow me on instagram</a
-        >
-        <a
-          href="https://www.tiktok.com/@eyspeedyboy12"
-          target="_blank"
-          class="link-button2"
-          >Follow me on TikTok</a
-        >
-      </div>
-
-      <div class="button-container">
-        <a
-          href="https://www.twitch.tv/eyspeedyboy12"
-          target="_blank"
-          class="link-button2"
-          >Follow me on Twitch</a
-        >
-        <a
-          href="https://discord.gg/42wzTAJh9M"
-          target="_blank"
-          class="link-button2"
-          >Join my discord server</a
-        >
-      </div>
-
-      <hr />
-
-      <h2>The games I play</h2>
-      <div class="marquee-container">
-        <div class="marquee-track">
-          <div class="game-card">
-            <img src="icon1.png" /> <span>Minecraft</span>
-          </div>
-          <div class="game-card">
-            <img src="icon2.png" /> <span>Asphalt</span>
-          </div>
-          <div class="game-card">
-            <img src="icon3.png" /> <span>Roblox</span>
-          </div>
-          <div class="game-card">
-            <img src="icon4.png" /> <span>Melon Playground</span>
-          </div>
-          <div class="game-card">
-            <img src="icon5.png" /> <span>Among Us</span>
-          </div>
-          <div class="game-card">
-            <img src="icon6.png" /> <span>Geometry Dash</span>
-          </div>
-
-          <div class="game-card">
-            <img src="icon1.png" /> <span>Minecraft</span>
-          </div>
-          <div class="game-card">
-            <img src="icon2.png" /> <span>Asphalt</span>
-          </div>
-          <div class="game-card">
-            <img src="icon3.png" /> <span>Roblox</span>
-          </div>
-          <div class="game-card">
-            <img src="icon4.png" /> <span>Melon Playground</span>
-          </div>
-          <div class="game-card">
-            <img src="icon5.png" /> <span>Among Us</span>
-          </div>
-          <div class="game-card">
-            <img src="icon6.png" /> <span>Geometry Dash</span>
+          <div class="button-container" style="margin-top: 30px">
+            <a
+              href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1"
+              target="_blank"
+              class="link-button2 pulse-on-load"
+            >
+              <i class="hgi hgi-stroke hgi-youtube"></i>
+              Subscribe to YouTube
+            </a>
+            <a
+              href="https://discord.gg/42wzTAJh9M"
+              target="_blank"
+              class="link-button2"
+            >
+              <i class="hgi hgi-stroke hgi-discord"></i>
+              Join Discord Server
+            </a>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Social Media Section -->
+      <section class="social-connect-section fade-in-section">
+        <div class="section-header">
+          <h2>
+            <i class="hgi hgi-stroke hgi-share-01"></i>
+            Connect With Me
+          </h2>
+          <hr style="width: 60%; margin: 20px auto" />
+        </div>
+
+        <div class="platform-grid">
+          <div class="platform-card">
+            <div class="platform-icon">
+              <i class="hgi hgi-stroke hgi-youtube" style="color: #ff0000"></i>
+            </div>
+            <h3 class="platform-name">YouTube</h3>
+            <p class="platform-handle">@Eyspeedyboy12</p>
+            <p class="platform-desc">
+              Watch my latest gaming videos and subscribe!
+            </p>
+            <a
+              href="https://www.youtube.com/@eyspeedyboy12?sub_confirmation=1"
+              target="_blank"
+              class="link-button2"
+              >Subscribe</a
+            >
+          </div>
+
+          <div class="platform-card">
+            <div class="platform-icon">
+              <i
+                class="hgi hgi-stroke hgi-instagram"
+                style="color: #e4405f"
+              ></i>
+            </div>
+            <h3 class="platform-name">Instagram</h3>
+            <p class="platform-handle">@eyspeedyboy12</p>
+            <p class="platform-desc">Behind-the-scenes and daily updates!</p>
+            <a
+              href="https://www.instagram.com/eyspeedyboy12/"
+              target="_blank"
+              class="link-button2"
+              >Follow</a
+            >
+          </div>
+
+          <div class="platform-card">
+            <div class="platform-icon">
+              <i class="hgi hgi-stroke hgi-tiktok"></i>
+            </div>
+            <h3 class="platform-name">TikTok</h3>
+            <p class="platform-handle">@eyspeedyboy12</p>
+            <p class="platform-desc">Quick gaming clips and funny moments!</p>
+            <a
+              href="https://www.tiktok.com/@eyspeedyboy12"
+              target="_blank"
+              class="link-button2"
+              >Follow</a
+            >
+          </div>
+
+          <div class="platform-card">
+            <div class="platform-icon">
+              <i class="hgi hgi-stroke hgi-twitch" style="color: #9146ff"></i>
+            </div>
+            <h3 class="platform-name">Twitch</h3>
+            <p class="platform-handle">Eyspeedyboy12</p>
+            <p class="platform-desc">Live streams and interactive gameplay!</p>
+            <a
+              href="https://www.twitch.tv/eyspeedyboy12"
+              target="_blank"
+              class="link-button2"
+              >Follow</a
+            >
+          </div>
+
+          <div class="platform-card">
+            <div class="platform-icon">
+              <i class="hgi hgi-stroke hgi-discord" style="color: #5865f2"></i>
+            </div>
+            <h3 class="platform-name">Discord</h3>
+            <p class="platform-handle">Community Server</p>
+            <p class="platform-desc">Chat, play games, and hang out with us!</p>
+            <a
+              href="https://discord.gg/42wzTAJh9M"
+              target="_blank"
+              class="link-button2"
+              >Join</a
+            >
+          </div>
+
+          <div class="platform-card">
+            <div class="platform-icon">
+              <i class="hgi hgi-stroke hgi-bluesky" style="color: #0085ff"></i>
+            </div>
+            <h3 class="platform-name">Bluesky</h3>
+            <p class="platform-handle">eyspeedyboy12</p>
+            <p class="platform-desc">Updates and community interaction!</p>
+            <a
+              href="https://bsky.app/profile/eyspeedyboy12.bsky.social"
+              target="_blank"
+              class="link-button2"
+              >Follow</a
+            >
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
